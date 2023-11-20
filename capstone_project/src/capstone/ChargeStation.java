@@ -45,6 +45,13 @@ public class ChargeStation {
 		// Logging
 		
 	}
+	
+	// exceptions
+	
+	
+	
+	
+	// setters and getters
 
 	public Charger[] getChargers() {
 		return chargers;
