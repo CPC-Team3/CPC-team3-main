@@ -1,10 +1,11 @@
 package capstone;
 
+import java.util.ArrayList;
 
 public class ChargeStation {
 	
 	
-	Charger chargers[]; // list of charger in the charging station
+	ArrayList<Charger> chargers = new ArrayList<Charger>; // list of charger in the charging station
 	int requestCar[]; // list of vehicle (id) that request to charge on the spot
 	String bookFilePath; // list of booking
 
