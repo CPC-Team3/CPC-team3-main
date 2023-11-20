@@ -1,11 +1,13 @@
 package capstone;
 
 import java.util.ArrayList;
+import java.io.IOException;
+
 
 public class ChargeStation {
 	
 	
-	ArrayList<Charger> chargers = new ArrayList<Charger>; // list of charger in the charging station
+	ArrayList<Charger> chargers = new ArrayList<Charger>(); // list of charger in the charging station
 	int requestCar[]; // list of vehicle (id) that request to charge on the spot
 	String bookFilePath; // list of booking
 
@@ -55,23 +57,14 @@ public class ChargeStation {
 	    }
 	}
 	
-	class bookException extends Exception {
-		public bookException(String message) {
+	class listeningException extends Exception {
+		public listeningException(String message) {
 	        super(message);
 	    }
 	}
 	
 	
-	
 	// setters and getters
-
-	public Charger[] getChargers() {
-		return chargers;
-	}
-
-	public void setChargers(Charger[] chargers) {
-		this.chargers = chargers;
-	}
 
 	public int[] getRequestCar() {
 		return requestCar;
