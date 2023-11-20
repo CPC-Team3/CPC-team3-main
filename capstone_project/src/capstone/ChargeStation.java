@@ -49,12 +49,17 @@ public class ChargeStation {
 	// exceptions
 	
 	class assigningException extends Exception {
-		
+		public assigningException(String message) {
+	        super(message);
+	    }
 	}
 	
 	class bookException extends Exception {
-		
+		public bookException(String message) {
+	        super(message);
+	    }
 	}
+	
 	
 	
 	// setters and getters
