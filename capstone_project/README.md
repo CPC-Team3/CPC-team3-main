@@ -10,8 +10,7 @@
 ## Responsibility / Task distribution
 1. Sheikh Muhammad Adib -> Handling Multiple exceptions [Video](https://1drv.ms/v/s!AlQOuTxbuHLMkb0fSAglONiIyAWqHA?e=reYGqU)
 2. Mykyta Konakh -> Resource Management [Video](https://1drv.ms/f/s!AnvqoDuBDuM6yA97OBLlwiGAToMR?e=QFqUsa)
-3. Raed Kayali -> [Video](https://1drv.ms/v/c/ef0b11542d3ddb9f/EbRysihZhU9HmaLJ4p7UKHgBqbRZBbRMI50KNFMUPReoHg?e=PjeN4v)
-)
-4. 
+3. Aditya Kumar -> Re-throwing Exceptions [Video]()
+4. Raed Kayali -> Chaining Exception [Video](https://1drv.ms/v/c/ef0b11542d3ddb9f/EbRysihZhU9HmaLJ4p7UKHgBqbRZBbRMI50KNFMUPReoHg?e=PjeN4v)
 
 
