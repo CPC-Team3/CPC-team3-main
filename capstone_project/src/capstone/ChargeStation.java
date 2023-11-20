@@ -4,7 +4,7 @@ package capstone;
 public class ChargeStation {
 	
 	
-	Charger chargers[]; // list of charger in ther chargestation
+	Charger chargers[]; // list of charger in the charging station
 	int requestCar[]; // list of vehicle (id) that request to charge on the spot
 	String bookFilePath; // list of booking
 
