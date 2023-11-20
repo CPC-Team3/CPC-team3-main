@@ -48,7 +48,13 @@ public class ChargeStation {
 	
 	// exceptions
 	
+	class assigningException extends Exception {
+		
+	}
 	
+	class bookException extends Exception {
+		
+	}
 	
 	
 	// setters and getters
