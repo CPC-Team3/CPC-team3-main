@@ -45,7 +45,6 @@ public class ChargingStation {
 			if (vehicleInfo != null) {
 				this.logger.log.info("Handling a vehicle - " + vehicleInfo);
 			}
-			
 			return vehicleInfo;
 	}
 	
@@ -90,8 +89,6 @@ public class ChargingStation {
 		// Logging
 		
 	}
-	
-
 	
 	
 	// setters and getters

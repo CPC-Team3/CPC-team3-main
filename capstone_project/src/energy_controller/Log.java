@@ -6,25 +6,9 @@ package energy_controller;
 import java.util.logging.FileHandler;
 import java.util.logging.Logger;
 import java.util.logging.SimpleFormatter;
+import energy_controller.ExceptionHandler.InitException;
+import energy_controller.ExceptionHandler.TestException;
 import java.io.IOException;
-
-
-@SuppressWarnings("serial")
-class TestException extends Exception {
-	public TestException(String message) {
-        super(message);
-        System.out.println("Test Failed");
-    }
-}
-
-@SuppressWarnings("serial")
-class InitException extends Exception {
-	public InitException(String message) {
-        super(message);
-        System.out.println("Unable to initiale the log");
-    }
-}
-
 
 public class Log{
 	
@@ -60,7 +44,7 @@ public class Log{
 			}		
 	}
 	
-    public static void main(String[] args) throws TestException, InitException {
+    public static void main(String[] args) throws InitException, TestException {
     	
     	/*
     	 * test init function and logging function
