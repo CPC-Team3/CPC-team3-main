@@ -58,7 +58,7 @@ public class Controller {
 		this.EnergySource.add(newEnergy);
 	}
 	
-	void aremoveEnergySource(Energy unwantedEnergy) {
+	void removeEnergySource(Energy unwantedEnergy) {
 		this.EnergySource.remove(unwantedEnergy);
 	}
 	
