@@ -2,6 +2,7 @@ package charging_station;
 
 import charging_station.ExceptionHandler.InitException;
 
+import java.io.*;
 public class Charger {
 		
 	// Attribute
@@ -28,6 +29,46 @@ public class Charger {
 	}
 	
 	// Functionality
+
+	public void writeToStream(OutputStream outputStream) throws IOException {
+		try (ObjectOutputStream objectOutputStream = new ObjectOutputStream(outputStream)) {
+			objectOutputStream.writeInt(id);
+			objectOutputStream.writeBoolean(occupied);
+			objectOutputStream.writeInt(chargingStationId);
+		}
+	}
+
+	// Method to read Charger information from a byte stream
+	public void readFromStream(InputStream inputStream) throws IOException, ClassNotFoundException {
+		try (ObjectInputStream objectInputStream = new ObjectInputStream(inputStream)) {
+			id = objectInputStream.readInt();
+			occupied = objectInputStream.readBoolean();
+			chargingStationId = objectInputStream.readInt();
+		}
+	}
+
+	// Method to write Charger information to a character stream
+	public void writeToFile(Writer writer) throws IOException {
+		try (BufferedWriter bufferedWriter = new BufferedWriter(writer)) {
+			bufferedWriter.write(String.valueOf(id));
+			bufferedWriter.newLine();
+			bufferedWriter.write(String.valueOf(occupied));
+			bufferedWriter.newLine();
+			bufferedWriter.write(String.valueOf(chargingStationId));
+			bufferedWriter.newLine();
+		}
+	}
+
+	// Method to read Charger information from a character stream
+	public void readFromFile(Reader reader) throws IOException {
+		try (BufferedReader bufferedReader = new BufferedReader(reader)) {
+			id = Integer.parseInt(bufferedReader.readLine());
+			occupied = Boolean.parseBoolean(bufferedReader.readLine());
+			chargingStationId = Integer.parseInt(bufferedReader.readLine());
+		}
+	}
+
+
 	void start_charge() {
 		this.logger.log.info("Charger " + String.valueOf(id) + "Start charging");
 	}

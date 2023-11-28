@@ -1,5 +1,6 @@
 package energy_controller;
 
+import java.io.*;
 import java.util.ArrayList;
 import energy_controller.ExceptionHandler.InitException;
 import energy_controller.ExceptionHandler.energySwitchException;
@@ -23,6 +24,52 @@ public class Controller {
 			this.id = id;
 		}catch(InitException e) {
 			System.out.print("Unable to initialize Charging Station "+ String.valueOf(id));
+		}
+	}
+
+	public void writeToStream(OutputStream outputStream) throws IOException {
+		try (ObjectOutputStream objectOutputStream = new ObjectOutputStream(outputStream)) {
+			objectOutputStream.writeInt(id);
+			objectOutputStream.writeObject(EnergySource);
+			objectOutputStream.writeObject(currentEnergySource);
+			objectOutputStream.writeBoolean(output);
+		}
+	}
+
+	// Method to read Controller information from a byte stream
+	public void readFromStream(InputStream inputStream) throws IOException, ClassNotFoundException {
+		try (ObjectInputStream objectInputStream = new ObjectInputStream(inputStream)) {
+			id = objectInputStream.readInt();
+			EnergySource = (ArrayList<Energy>) objectInputStream.readObject();
+			currentEnergySource = (Energy) objectInputStream.readObject();
+			output = objectInputStream.readBoolean();
+		}
+	}
+
+	// Method to write Controller information to a character stream
+	public void writeToFile(Writer writer) throws IOException {
+		try (BufferedWriter bufferedWriter = new BufferedWriter(writer)) {
+			bufferedWriter.write(String.valueOf(id));
+			bufferedWriter.newLine();
+			for (Energy energy : EnergySource) {
+				energy.writeToFile(bufferedWriter);
+			}
+			bufferedWriter.write(currentEnergySource.toString());
+			bufferedWriter.newLine();
+			bufferedWriter.write(String.valueOf(output));
+			bufferedWriter.newLine();
+		}
+	}
+
+	// Method to read Controller information from a character stream
+	public void readFromFile(Reader reader) throws IOException {
+		try (BufferedReader bufferedReader = new BufferedReader(reader)) {
+			id = Integer.parseInt(bufferedReader.readLine());
+			for (Energy energy : EnergySource) {
+				energy.readFromFile(bufferedReader);
+			}
+			currentEnergySource = new Energy(bufferedReader.readLine()); // Adjust this line based on your Energy class
+			output = Boolean.parseBoolean(bufferedReader.readLine());
 		}
 	}
 	
