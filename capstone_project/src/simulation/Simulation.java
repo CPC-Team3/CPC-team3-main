@@ -1,15 +1,16 @@
-package capstone;
+package simulation;
 
 
 import capstone.exception_handler.InitException;
 import capstone.exception_handler.assigningException;
 import capstone.exception_handler.listeningException;
 import charging_station.Charger;
+import charging_station.ChargingStation;
 
 public class Simulation {
 
 	public static void main(String[] args) {
-		ChargeStation station1 = new ChargeStation();
+		ChargingStation station1 = new ChargingStation(0);
 		try {
 			station1.chargers.add(new Charger(0, 0));
 		} catch (InitException e) {
@@ -20,7 +21,7 @@ public class Simulation {
 		while(true) {
 			try {
 				station1.listening(null);
-				station1.availability();
+				station1.availability(0);
 				station1.assigning(0, 0);
 				
 			}catch (listeningException e) {

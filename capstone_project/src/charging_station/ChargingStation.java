@@ -13,12 +13,12 @@ public class ChargingStation {
 	
 	// Attributes	
 	int id; // charging station id
-	ArrayList<Charger> chargers = new ArrayList<Charger>(); // list of charger in the charging station
+	public ArrayList<Charger> chargers = new ArrayList<Charger>(); // list of charger in the charging station
 	String bookFilePath; // list of booking
 	Log logger;
 	
 	// Constructor
-	ChargingStation(int id){
+	public ChargingStation(int id){
 		/*
 		 * input : id of the charging station
 		 */
@@ -34,7 +34,7 @@ public class ChargingStation {
 
 
 	// Functionalities
-	String listening( String bookFilePath) throws listeningException{
+	public String listening( String bookFilePath) throws listeningException{
 		/* 
 		 * read the booking file and return the information of waiting vehicle
 		 */
@@ -56,7 +56,7 @@ public class ChargingStation {
 			return vehicleInfo;
 	}
 	
-	int availability(int vehId) {
+	public int availability(int vehId) {
 		/* 
 		 * return  id of free charger
 		 */
@@ -77,7 +77,7 @@ public class ChargingStation {
 	}
 	
 	
-	void assigning(int vehId, int chargerId) throws assigningException {
+	public void assigning(int vehId, int chargerId) throws assigningException {
 		this.logger.log.info("Assigning vehicle " + String.valueOf(vehId) + " to charger " + String.valueOf(chargerId));
 		// get vehicle id 
 		if (vehId < 0) {
