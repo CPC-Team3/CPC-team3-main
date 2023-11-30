@@ -34,6 +34,7 @@ public class ChargingStation {
 
 
 	// Functionalities
+	@SuppressWarnings("unused")
 	public String listening( String bookFilePath) throws listeningException{
 		/* 
 		 * read the booking file and return the information of waiting vehicle
