@@ -1,10 +1,20 @@
 package capstone;
 
+
+import capstone.exception_handler.InitException;
+import capstone.exception_handler.assigningException;
+import capstone.exception_handler.listeningException;
+import charging_station.Charger;
+
 public class Simulation {
 
 	public static void main(String[] args) {
 		ChargeStation station1 = new ChargeStation();
-		station1.chargers.add(new Charger());
+		try {
+			station1.chargers.add(new Charger(0, 0));
+		} catch (InitException e) {
+			System.out.println("Error in adding new Charger: " + e.getMessage());
+		}
 		station1.chargers.get(0).id = 1;
 		
 		while(true) {
@@ -28,3 +38,4 @@ public class Simulation {
 	}
 
 }
+

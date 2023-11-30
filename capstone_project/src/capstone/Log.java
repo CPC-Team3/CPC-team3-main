@@ -1,13 +1,15 @@
 /**
  * 
  */
-package system;
+package capstone;
 
 import java.util.logging.FileHandler;
+
 import java.util.logging.Logger;
 import java.util.logging.SimpleFormatter;
-import system.ExceptionHandler.InitException;
-import system.ExceptionHandler.TestException;
+import capstone.exception_handler.InitException;
+import capstone.exception_handler.TestException;
+
 import java.io.IOException;
 
 public class Log{
@@ -18,7 +20,7 @@ public class Log{
 	String logFilelName;
 	String componentName;
 	
-	Log(String logFilelName, String componentName){
+	public Log(String logFilelName, String componentName){
 		/*
 		 * initialize the file name for logging and the component name where the log is used
 		 */

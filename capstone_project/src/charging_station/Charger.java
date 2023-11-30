@@ -1,17 +1,18 @@
 package charging_station;
 
-import charging_station.ExceptionHandler.InitException;
+import capstone.Log;
+import capstone.exception_handler.InitException;
 
 public class Charger {
 		
 	// Attribute
-	int id;
+	public int id;
 	boolean occupied;
 	int chargingStationId;
 	Log logger;
 	
 	// Constructor
-	Charger(int id, int chargingStationId) throws InitException{
+	public Charger(int id, int chargingStationId) throws InitException{
 		/*
 		 * input : id of the charger, id of charger station that this charger belong to
 		 */

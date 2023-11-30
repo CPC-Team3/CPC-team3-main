@@ -1,30 +1,19 @@
 package capstone;
 
 import java.util.ArrayList;
-import java.io.IOException;
+import capstone.exception_handler.assigningException;
+import capstone.exception_handler.listeningException;
+import charging_station.Charger;
 
 // exceptions
-
-class assigningException extends Exception {
-	public assigningException(String message) {
-        super(message);
-    }
-}
-
-class listeningException extends Exception {
-	public listeningException(String message) {
-        super(message);
-    }
-}
-
 public class ChargeStation {
 	
 	
-	ArrayList<Charger> chargers = new ArrayList<Charger>(); // list of charger in the charging station
+	public ArrayList<Charger> chargers = new ArrayList<Charger>(); // list of charger in the charging station
 	int requestCar[]; // list of vehicle (id) that request to charge on the spot
 	String bookFilePath; // list of booking
 
-	int availability() {
+	public int availability() {
 		/* 
 		 * return  id of free charger
 		 */
@@ -34,7 +23,7 @@ public class ChargeStation {
 		return 0;
 	}
 	
-	int listening( String bookFilePath) throws listeningException{
+	public int listening( String bookFilePath) throws listeningException{
 		/* 
 		 * return  id of waiting vehicle from requestCar and bookFile
 		 */
@@ -52,7 +41,7 @@ public class ChargeStation {
 		return 0;
 	}
 	
-	void assigning(int carID, int chargerID) throws assigningException {
+	public void assigning(int carID, int chargerID) throws assigningException {
 		/* car id as the input
 		 * assign the vehicle to a specific charger
 		 */

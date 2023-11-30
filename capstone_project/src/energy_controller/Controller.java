@@ -1,8 +1,10 @@
 package energy_controller;
 
 import java.util.ArrayList;
-import energy_controller.ExceptionHandler.InitException;
-import energy_controller.ExceptionHandler.energySwitchException;
+
+import capstone.Log;
+import capstone.exception_handler.InitException;
+import capstone.exception_handler.energySwitchException;
 
 public class Controller {
 	// Attributes	
