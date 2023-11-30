@@ -39,7 +39,13 @@ public class ChargingStation {
 		 * read the booking file and return the information of waiting vehicle
 		 */
 			String vehicleInfo = null;
+			boolean file_exist = false;
 			// read booking file
+			if (file_exist) {
+				
+			}else {
+				throw new listeningException("could not found booking file");
+			}
 			
 			// get the vehicle information if available (the booking time >= current time))	
 			
@@ -73,6 +79,12 @@ public class ChargingStation {
 	
 	void assigning(int vehId, int chargerId) throws assigningException {
 		this.logger.log.info("Assigning vehicle " + String.valueOf(vehId) + " to charger " + String.valueOf(chargerId));
+		// get vehicle id 
+		if (vehId < 0) {
+			throw new assigningException("vehicle is not exist");
+		}
+		
+		
 		// set the charger to occupied
 		for (Charger c:chargers) {
 			if (c.id == chargerId) {
