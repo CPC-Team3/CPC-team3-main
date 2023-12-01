@@ -12,19 +12,14 @@ public class Charger {
 	Log logger;
 	
 	// Constructor
-	public Charger(int id, int chargingStationId) throws InitException{
+	public Charger(int id, int chargingStationId){
 		/*
 		 * input : id of the charger, id of charger station that this charger belong to
 		 */
-		try {
-			logger = new Log("charger"+String.valueOf(this.id),"Charger "+ String.valueOf(this.id));
-			logger.init();
-			this.id = id;
-			this.chargingStationId = chargingStationId;
-		}catch(InitException e) {
-			System.out.print("Unable to initialize Charger "+ String.valueOf(id));
-		}
-		
+		logger = new Log("charger"+String.valueOf(this.id),"Charger "+ String.valueOf(this.id));
+		logger.init();
+		this.id = id;
+		this.chargingStationId = chargingStationId;
 		
 	}
 	

@@ -28,7 +28,7 @@ public class Log{
 		this.componentName = componentName;
 	}
 	
-	public void init() throws InitException{
+	public void init(){
 		/*
 		 * initialize log object, log file and log handler
 		 */

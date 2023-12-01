@@ -12,24 +12,20 @@ import capstone.exception_handler.listeningException;
 public class ChargingStation {
 	
 	// Attributes	
-	int id; // charging station id
+	public int id; // charging station id
 	public ArrayList<Charger> chargers = new ArrayList<Charger>(); // list of charger in the charging station
 	String bookFilePath; // list of booking
 	Log logger;
 	
 	// Constructor
-	public ChargingStation(int id){
+	public ChargingStation(int id) {
 		/*
 		 * input : id of the charging station
 		 */
-		try {
-			logger = new Log("charger"+String.valueOf(this.id),"Charger "+ String.valueOf(this.id));
-			logger.init();
-			this.id = id;
-		}catch(InitException e) {
-			System.out.print("Unable to initialize Charging Station "+ String.valueOf(id));
-		}
-		
+		logger = new Log("charger"+String.valueOf(this.id),"Charger "+ String.valueOf(this.id));
+		logger.init();
+		this.id = id;
+	
 	}
 
 
