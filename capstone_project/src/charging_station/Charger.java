@@ -63,7 +63,7 @@ public class Charger  extends Thread{
 		/*
 		 * charge the taken car and set self to occupied
 		 */
-		logger.info("Charger " + String.valueOf(id) + " - Start charging car " + this.handledCar.getId());
+		logger.info("Charger " + String.valueOf(id) + " - Start charging car " + this.handledCar.getId_());
 		setOccupied(true);
 		charging();
 	}
@@ -72,7 +72,7 @@ public class Charger  extends Thread{
 		/*
 		 *  stop charging and set self to free
 		 */
-		logger.info("Charger " + String.valueOf(id) + " - Stop charging car " + this.handledCar.getId());
+		logger.info("Charger " + String.valueOf(id) + " - Stop charging car " + this.handledCar.getId_());
 		// set the occupied to false
 		setOccupied(false);
 		// reset
