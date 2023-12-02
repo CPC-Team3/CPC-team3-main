@@ -14,18 +14,21 @@ import java.io.IOException;
 
 public class Log{
 	
-	public Logger log;
+	// Attribute
+	Logger log;
 	FileHandler fileHandler;
 	SimpleFormatter formatter;
 	String logFilelName;
 	String componentName;
 	
+	// Constructor and initializer
 	public Log(String logFilelName, String componentName){
 		/*
 		 * initialize the file name for logging and the component name where the log is used
 		 */
 		this.logFilelName = logFilelName;
 		this.componentName = componentName;
+		init();
 	}
 	
 	public void init(){
@@ -35,7 +38,7 @@ public class Log{
 		try {
 			
 			log = Logger.getLogger(componentName);
-			fileHandler = new FileHandler( this.logFilelName + "_log_file.log");
+			fileHandler = new FileHandler( "log\\" + this.logFilelName + "_log_file.log");
 			formatter = new SimpleFormatter();
 			fileHandler.setFormatter(formatter);
 			log.addHandler(fileHandler);
@@ -45,6 +48,18 @@ public class Log{
 			e.printStackTrace();
 			}		
 	}
+	
+	
+	// Functionalities
+	public void info(String info) {
+		log.info(info);
+	}
+	
+	public void warning(String warning) {
+		log.warning(warning);
+	}
+	
+	
 	
     public static void main(String[] args) throws InitException, TestException {
     	

@@ -1,0 +1,46 @@
+Dec 02, 2023 12:11:46 PM capstone.Log init
+INFO: Loging system for Charger 1 started
+Dec 02, 2023 12:11:46 PM capstone.Log info
+INFO: charger 1 starting ....
+Dec 02, 2023 12:11:46 PM capstone.Log info
+INFO: Waiting for new car
+Dec 02, 2023 12:11:46 PM capstone.Log info
+INFO: Car 1 was taken from the queue and will be charged
+Dec 02, 2023 12:11:46 PM capstone.Log info
+INFO: Charger 1 - Start charging car 1
+Dec 02, 2023 12:11:51 PM capstone.Log info
+INFO: Charger 1 - Stop charging car 1
+Dec 02, 2023 12:11:51 PM capstone.Log info
+INFO: Waiting for new car
+Dec 02, 2023 12:11:51 PM capstone.Log info
+INFO: Car 2 was taken from the queue and will be charged
+Dec 02, 2023 12:11:51 PM capstone.Log info
+INFO: Charger 1 - Start charging car 2
+Dec 02, 2023 12:11:56 PM capstone.Log info
+INFO: Charger 1 - Stop charging car 2
+Dec 02, 2023 12:11:56 PM capstone.Log info
+INFO: Waiting for new car
+Dec 02, 2023 12:11:56 PM capstone.Log info
+INFO: Car 4 was taken from the queue and will be charged
+Dec 02, 2023 12:11:56 PM capstone.Log info
+INFO: Charger 1 - Start charging car 4
+Dec 02, 2023 12:12:01 PM capstone.Log info
+INFO: Charger 1 - Stop charging car 4
+Dec 02, 2023 12:12:01 PM capstone.Log info
+INFO: Waiting for new car
+Dec 02, 2023 12:12:01 PM capstone.Log info
+INFO: Car 6 was taken from the queue and will be charged
+Dec 02, 2023 12:12:01 PM capstone.Log info
+INFO: Charger 1 - Start charging car 6
+Dec 02, 2023 12:12:06 PM capstone.Log info
+INFO: Charger 1 - Stop charging car 6
+Dec 02, 2023 12:12:06 PM capstone.Log info
+INFO: Waiting for new car
+Dec 02, 2023 12:12:06 PM capstone.Log info
+INFO: Car 9 was taken from the queue and will be charged
+Dec 02, 2023 12:12:06 PM capstone.Log info
+INFO: Charger 1 - Start charging car 9
+Dec 02, 2023 12:12:11 PM capstone.Log info
+INFO: Charger 1 - Stop charging car 9
+Dec 02, 2023 12:12:11 PM capstone.Log info
+INFO: Waiting for new car

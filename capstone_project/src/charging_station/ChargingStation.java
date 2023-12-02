@@ -1,96 +1,106 @@
 package charging_station;
 
 import java.util.ArrayList;
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReentrantLock;
 
 import capstone.Log;
-import capstone.exception_handler.InitException;
-import capstone.exception_handler.assigningException;
 import capstone.exception_handler.listeningException;
+import vehicle.Car;
 
-// exceptions
-
-public class ChargingStation {
+public class ChargingStation extends Thread{
 	
 	// Attributes	
-	public int id; // charging station id
-	public ArrayList<Charger> chargers = new ArrayList<Charger>(); // list of charger in the charging station
+	int id; // charging station id
+	ArrayList<Charger> chargers = new ArrayList<Charger>(); // list of charger in the charging station
+	ArrayList<Thread> chargerThreads = new ArrayList<Thread>(); // list of charger in the charging station
 	String bookFilePath; // list of booking
 	Log logger;
 	
+	private ArrayList<Car> waitingCars = new ArrayList<>(); // queue of waiting cars in the charging station
+	private final Lock waitingCarGuard = new ReentrantLock();;
+	
+	
 	// Constructor
-	public ChargingStation(int id) {
+	public ChargingStation(int id,String bookFilePath) {
 		/*
 		 * input : id of the charging station
 		 */
-		logger = new Log("charger"+String.valueOf(this.id),"Charger "+ String.valueOf(this.id));
-		logger.init();
-		this.id = id;
+		logger = new Log("station\\ChargingStation"+String.valueOf(this.id),"Charging Station "+ String.valueOf(this.id));
+		setId(id);
+		this.bookFilePath = bookFilePath;
 	
 	}
+
+
+	
 
 
 	// Functionalities
-	@SuppressWarnings("unused")
-	public String listening( String bookFilePath) throws listeningException{
-		/* 
-		 * read the booking file and return the information of waiting vehicle
+	public void run() {
+		/*
+		 * run the listening function as a process to update waiting car queue
+		 * run each charger as a process to charge handle the cars in car queue
+		 * 
 		 */
-			String vehicleInfo = null;
-			boolean file_exist = false;
-			// read booking file
-			if (file_exist) {
-				
-			}else {
-				throw new listeningException("could not found booking file");
-			}
-			
-			// get the vehicle information if available (the booking time >= current time))	
-			
-			// return car information
-			if (vehicleInfo != null) {
-				this.logger.log.info("Handling a vehicle - " + vehicleInfo);
-			}
-			return vehicleInfo;
-	}
-	
-	public int availability(int vehId) {
-		/* 
-		 * return  id of free charger
-		 */
-		int idOfFreeCharger = -1;
 		
-		// check for available charger
-		this.logger.log.info("Finding available charger for vehicle " + String.valueOf(vehId));
-		for (Charger c:chargers) {
-			if (!c.occupied) {
-				this.logger.log.info("Charger " + String.valueOf(idOfFreeCharger) + " is available.");
-				idOfFreeCharger = c.id;
-				this.logger.log.info("Selecting charger " + String.valueOf(idOfFreeCharger));
+		// run listening
+		logger.info("starting listening function");
+		try {
+			listening(bookFilePath);
+		} catch (listeningException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		//run each charger
+		logger.info("starting each charger");
+		for (Charger charger: chargers) {
+			logger.info("starting charger " + charger.getId_());
+			charger.start();
+		}
+		
+		// wait all the charger to turned off
+
+		logger.info("waiting for all charger to finish");
+		for (Thread thread : chargerThreads) {
+			try {
+				thread.join();
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
 			}
 		}
 		
-		// return available charger		
-		return idOfFreeCharger;
+		
 	}
 	
-	
-	public void assigning(int vehId, int chargerId) throws assigningException {
-		this.logger.log.info("Assigning vehicle " + String.valueOf(vehId) + " to charger " + String.valueOf(chargerId));
-		// get vehicle id 
-		if (vehId < 0) {
-			throw new assigningException("vehicle is not exist");
-		}
-		
-		
-		// set the charger to occupied
-		for (Charger c:chargers) {
-			if (c.id == chargerId) {
-				c.occupied = true;
+	void listening( String bookFilePath) throws listeningException{
+		/* 
+		 * read the booking file and wait for new incoming cars and put them in car waiting 
+		 */
+			
+		// put new incoming vehicle to queue
+		// for now we just use fix list of vehicle
+		boolean executed = false;
+		while (executed == false) {
+
+			logger.info("adding fake cars");
+			executed = true;
+			for (int i = 0 ; i < 10; i++) {
+				logger.info("adding fake cars " + i);
+				waitingCars.add(new Car(i));
 			}
-		}	
+		}
+		executed = true;
 		
-				
+			
+		// put vehicle from book file to queue (if booking time >= current time)
+		
+			
 	}
+	
+
 	
 	void book(int id, double timeSlot) {
 		/* 
@@ -101,8 +111,18 @@ public class ChargingStation {
 		
 	}
 	
+	public void addCharger(int chargerId) {
+		chargers.add(new Charger(chargerId, this.id, waitingCars, waitingCarGuard));
+		logger.info(" adding new charger to station "+ getId_() + " with id " + chargerId);
+	}
+	
 	
 	// setters and getters
+	
+	private void setId(int id) {
+		this.id = id;
+		
+	}
 	public String getBookFilePath() {
 		return bookFilePath;
 	}
@@ -114,7 +134,34 @@ public class ChargingStation {
 	// to strings
 	@Override
 	public String toString() {
-		return "Charging Station [id=" + id +"]";
+		return "Charging Station [id=" + this.id + "]";
 	}
+
+
+	public int getId_() {
+		return this.id;
+	}
+	
+	public Lock getWaitingCarGuard() {
+		return waitingCarGuard;
+	}
+	
+	
+	
+	
+	// test
+	public static void main(String args[]) {
+		 
+		 String bookFilePath = "dummy";
+		 
+		 ChargingStation station1 = new ChargingStation(0, bookFilePath);
+		 for (int i = 0; i < 2; i++) {
+			 station1.addCharger(i);
+		 }
+		 station1.start();
+		 
+		 
+	 }
+	
 
 }

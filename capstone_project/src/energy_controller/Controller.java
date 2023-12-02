@@ -3,7 +3,6 @@ package energy_controller;
 import java.util.ArrayList;
 
 import capstone.Log;
-import capstone.exception_handler.InitException;
 import capstone.exception_handler.energySwitchException;
 
 public class Controller {
@@ -16,16 +15,9 @@ public class Controller {
 	
 	// Constructor
 	Controller(int id){
-		/*
-		 * input : id of the controller
-		 */
-		try {
-			logger = new Log("charger"+String.valueOf(this.id),"Charger "+ String.valueOf(this.id));
-			logger.init();
-			this.id = id;
-		}catch(InitException e) {
-			System.out.print("Unable to initialize Charging Station "+ String.valueOf(id));
-		}
+		logger = new Log("charger"+String.valueOf(this.id),"Charger "+ String.valueOf(this.id));
+		logger.init();
+		this.id = id;
 	}
 	
 	// energy source switcher
