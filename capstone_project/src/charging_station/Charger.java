@@ -76,12 +76,12 @@ public class Charger  extends Thread{
 		logger.info("Charger " + String.valueOf(id) + " - Stop charging car " + this.handledCar.getId_());
 		// set the occupied to false
 		setOccupied(false);
-		// reset
-		handledCar = null;
 		
 		// send done message to the car
 		int[] message = {handledCar.id, Standard.DONE};
 		listenerComChannel.add(message);
+		// reset
+		handledCar = null;
 
 	}
 
