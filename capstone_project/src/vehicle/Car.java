@@ -9,7 +9,7 @@ public class Car extends Thread{
 	// Attribute
     public int id;
     ArrayList<int[]> comChannel;
-    long MAX_WAIT = 10000000; //milliseconds
+    long start = System.currentTimeMillis();
     
     // constructors
     public Car(int id) {
@@ -60,7 +60,7 @@ public class Car extends Thread{
     			
     		}
     		// if time up
-    		if(!done &&(counter > MAX_WAIT) ) {
+    		if(!done &&((System.currentTimeMillis() - start) > Standard.MAX_WAIT) ) {
     			leave();
     			break;
     		}

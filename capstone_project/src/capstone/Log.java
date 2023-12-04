@@ -5,12 +5,11 @@ package capstone;
 
 
 
+import java.util.logging.FileHandler;
 import java.util.logging.Logger;
 import java.util.logging.SimpleFormatter;
 import capstone.exception_handler.InitException;
 import capstone.exception_handler.TestException;
-import java.util.logging.FileHandler;
-
 import java.io.IOException;
 
 public class Log{

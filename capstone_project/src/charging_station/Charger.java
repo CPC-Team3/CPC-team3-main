@@ -54,11 +54,9 @@ public class Charger  extends Thread{
 		/*
 		 * this function is to simulate charging a car by implementing delay function or sleep function
 		 */
-		try {
-			Thread.sleep(5000);
-
-		} catch (InterruptedException e) {
-			e.printStackTrace();
+		long start = System.currentTimeMillis();
+		while ((System.currentTimeMillis() - start) < Standard.chargeDuration) {
+			// wait 2 seconds
 		}
 
 	}
