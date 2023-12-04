@@ -37,7 +37,7 @@ class carSimulator extends Thread{
 	
 	public void run(){
 		while(true) {
-			//spawn car random
+			//spawn car randomly
 		}
 		
 	}

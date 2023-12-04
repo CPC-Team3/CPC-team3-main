@@ -44,11 +44,12 @@ public class Car extends Thread{
     }
     
     void wait_() throws InterruptedException {
+    	/*
+    	 * wait for maximum duration
+    	 * wait for done message at the same time
+    	 */
     	boolean done = false;
-		long counter = 0;
-    	while(!done) {
-    		counter++;
-    		
+		while(!done) {
     		// if done
     		for (int[] message : comChannel) {
     			if (message[0] == id) {
@@ -57,7 +58,6 @@ public class Car extends Thread{
     					break;
     				}
     			}
-    			
     		}
     		// if time up
     		if(!done &&((System.currentTimeMillis() - start) > Standard.MAX_WAIT) ) {
