@@ -5,6 +5,7 @@ import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
 import capstone.Log;
+import capstone.Standard;
 import capstone.exception_handler.listeningException;
 import vehicle.Car;
 
@@ -14,21 +15,25 @@ public class ChargingStation extends Thread{
 	int id; // charging station id
 	ArrayList<Charger> chargers = new ArrayList<Charger>(); // list of charger in the charging station
 	ArrayList<Thread> chargerThreads = new ArrayList<Thread>(); // list of charger in the charging station
+	ArrayList<int[]> listenerComChannel; 
+	
 	String bookFilePath; // list of booking
 	Log logger;
+	
 	
 	private ArrayList<Car> waitingCars = new ArrayList<>(); // queue of waiting cars in the charging station
 	private final Lock waitingCarGuard = new ReentrantLock();;
 	
 	
 	// Constructor
-	public ChargingStation(int id,String bookFilePath) {
+	public ChargingStation(int id,String bookFilePath, ArrayList<int[]> comChannel) {
 		/*
 		 * input : id of the charging station
 		 */
 		logger = new Log("station\\ChargingStation"+String.valueOf(this.id),"Charging Station "+ String.valueOf(this.id));
 		setId(id);
 		this.bookFilePath = bookFilePath;
+		this.listenerComChannel = comChannel;
 	
 	}
 
@@ -44,14 +49,6 @@ public class ChargingStation extends Thread{
 		 * 
 		 */
 		
-		// run listening
-		logger.info("starting listening function");
-		try {
-			listening(bookFilePath);
-		} catch (listeningException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
 		
 		//run each charger
 		logger.info("starting each charger");
@@ -59,6 +56,15 @@ public class ChargingStation extends Thread{
 			logger.info("starting charger " + charger.getId_());
 			charger.start();
 		}
+		
+		// run listening
+				logger.info("starting listening function");
+				try {
+					listening(bookFilePath);
+				} catch (listeningException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 		
 		// wait all the charger to turned off
 
@@ -81,23 +87,39 @@ public class ChargingStation extends Thread{
 		 */
 			
 		// put new incoming vehicle to queue
-		// for now we just use fix list of vehicle
-		boolean executed = false;
-		while (executed == false) {
-
-			logger.info("adding fake cars");
-			executed = true;
-			for (int i = 0 ; i < 10; i++) {
+		
+		boolean SimulationExecuted = false; // for simulation
+		while(true) {
+			
+			// for now we just use fix list of vehicle
+			for (int i = 0 ; i < 10 && !SimulationExecuted; i++) {
 				logger.info("adding fake cars " + i);
 				waitingCars.add(new Car(i));
+			SimulationExecuted = true;
 			}
+			
+			// read any message
+			for(int[] message : listenerComChannel) {
+				if(message[1] == Standard.REQUEST) {
+					logger.info("cars with id " + message[0] + " request to charge");
+					waitingCars.add(new Car(message[0]));
+					logger.info("cars with id " + message[0] + " is added to waiting queue");
+					listenerComChannel.remove(message);
+				}
+				if(message[1] == Standard.LEAVE) {
+					logger.info("cars with id " + message[0] + " leave the station");
+					waitingCars.remove(new Car(message[0]));
+					for (Car car: waitingCars) {
+						if (car.getId_() == message[0]) {
+							logger.info("cars with id " + message[0] + " is removed from waiting queue");
+							waitingCars.remove(car);
+						}
+					}
+					listenerComChannel.remove(message);
+				}
+			}	
 		}
-		executed = true;
-		
-			
 		// put vehicle from book file to queue (if booking time >= current time)
-		
-			
 	}
 	
 
@@ -112,7 +134,7 @@ public class ChargingStation extends Thread{
 	}
 	
 	public void addCharger(int chargerId) {
-		chargers.add(new Charger(chargerId, this.id, waitingCars, waitingCarGuard));
+		chargers.add(new Charger(chargerId, this.id, waitingCars, waitingCarGuard, listenerComChannel));
 		logger.info(" adding new charger to station "+ getId_() + " with id " + chargerId);
 	}
 	
@@ -154,7 +176,7 @@ public class ChargingStation extends Thread{
 		 
 		 String bookFilePath = "dummy";
 		 
-		 ChargingStation station1 = new ChargingStation(0, bookFilePath);
+		 ChargingStation station1 = new ChargingStation(0, bookFilePath,new ArrayList<int[]>());
 		 for (int i = 0; i < 2; i++) {
 			 station1.addCharger(i);
 		 }

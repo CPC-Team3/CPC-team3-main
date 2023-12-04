@@ -2,6 +2,7 @@
 package charging_station;
 
 import capstone.Log;
+import capstone.Standard;
 import vehicle.Car;
 
 import java.util.ArrayList;
@@ -13,6 +14,7 @@ public class Charger  extends Thread{
 	// Attribute
 	private Lock waitingCarsGuard; 
 	private ArrayList<Car> waitingCars;
+	private ArrayList<int[]> listenerComChannel; 
 	int id;
 	boolean occupied;
 	int chargingStationId;
@@ -20,7 +22,7 @@ public class Charger  extends Thread{
 	Car handledCar;
 	
 	// Constructor
-	public Charger(int id, int chargingStationId, ArrayList<Car> waitingCars, Lock waitingCarsGuard){
+	public Charger(int id, int chargingStationId, ArrayList<Car> waitingCars, Lock waitingCarsGuard, ArrayList<int[]> listenerComChannel){
 		/*
 		 * input : id of the charger, id of charger station that this charger belong to, queue of waiting car, guard for the waiting queue 
 		 */
@@ -29,6 +31,7 @@ public class Charger  extends Thread{
 		setChargingStationId(chargingStationId);
 		this.waitingCars = waitingCars;
 		this.waitingCarsGuard = waitingCarsGuard;
+		this.listenerComChannel = listenerComChannel;
 	}
 
 	// Functionality
@@ -77,6 +80,10 @@ public class Charger  extends Thread{
 		setOccupied(false);
 		// reset
 		handledCar = null;
+		
+		// send done message to the car
+		int[] message = {handledCar.id, Standard.DONE};
+		listenerComChannel.add(message);
 
 	}
 
@@ -127,7 +134,7 @@ public class Charger  extends Thread{
 		 int stationId = 0;
 		 Lock waitinQueueGuard = new ReentrantLock(); // mutual exclusion for waiting car queue
 		 ArrayList<Car> waitingCars = new ArrayList<>(); // queue of waiting cars in the charging station
-		 Charger charger1 = new Charger(0,stationId,waitingCars, waitinQueueGuard);
+		 Charger charger1 = new Charger(0,stationId,waitingCars, waitinQueueGuard, new ArrayList<int[]>() );
 		 charger1.run();
 	 }
 	

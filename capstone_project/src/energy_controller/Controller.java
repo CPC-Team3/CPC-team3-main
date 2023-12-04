@@ -3,12 +3,11 @@ package energy_controller;
 import java.util.ArrayList;
 
 import capstone.Log;
+import capstone.Standard;
 import capstone.exception_handler.energySwitchException;
 
 public class Controller extends Thread{
 	// Oder in energy source
-	int SUNNY = 0;
-	int WINDY = 1;
 	
 	
 	// Attributes	
@@ -40,7 +39,7 @@ public class Controller extends Thread{
 					
 					// set to solar
 					try {
-						switcher(EnergySource.get(SUNNY));
+						switcher(EnergySource.get(Standard.SUNNY));
 					} catch (energySwitchException e) {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
@@ -49,7 +48,7 @@ public class Controller extends Thread{
 				if (currentWeather.windy) {
 					// set to wind
 					try {
-						switcher(EnergySource.get(WINDY));
+						switcher(EnergySource.get(Standard.WINDY));
 					} catch (energySwitchException e) {
 						// TODO Auto-generated catch block
 						e.printStackTrace();

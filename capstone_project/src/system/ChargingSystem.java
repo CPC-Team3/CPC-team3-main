@@ -17,14 +17,16 @@ public class ChargingSystem extends Thread{
 	private String bookFilePath;
 	private ChargingStation station1; // main charging station
 	private Controller energyController1;
+	ArrayList<int[]> carComChannel;
 	Log logger;
 	int id;
 	
 	
 	// constructor
-	public ChargingSystem(String bookFilePath) {
+	public ChargingSystem(String bookFilePath, ArrayList<int[]> carComChannel) {
 		this.bookFilePath = bookFilePath;
 		logger = new Log("system\\system"+String.valueOf(getId_()),"System "+ String.valueOf(getId_()));
+		this.carComChannel = carComChannel;
 		
 	}
 	
@@ -38,7 +40,7 @@ public class ChargingSystem extends Thread{
 		
 		// initialize charging station
 		logger.info("Initialize charging station");
-		station1 = new ChargingStation(0,bookFilePath);
+		station1 = new ChargingStation(0,bookFilePath, carComChannel);
 		station1.addCharger(0);
 		station1.addCharger(1);
 		logger.info("Charging station is ready");
@@ -78,7 +80,7 @@ public class ChargingSystem extends Thread{
 	
 	//simulation
 	public static void main(String[] args) {
-		ChargingSystem sys1 = new ChargingSystem("bookingFilePath");
+		ChargingSystem sys1 = new ChargingSystem("bookingFilePath", new ArrayList<int[]>());
 		sys1.start();
 		
 	}
