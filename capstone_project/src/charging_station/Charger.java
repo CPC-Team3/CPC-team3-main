@@ -12,14 +12,14 @@ import java.util.concurrent.locks.ReentrantLock;
 public class Charger  extends Thread{
 		
 	// Attribute
-	private Lock waitingCarsGuard; 
-	private ArrayList<Car> waitingCars;
-	private ArrayList<int[]> listenerComChannel; 
+	public Lock waitingCarsGuard; 
+	public ArrayList<Car> waitingCars;
+	public ArrayList<int[]> listenerComChannel; 
 	int id;
 	boolean occupied;
 	int chargingStationId;
 	Log logger;
-	Car handledCar;
+	Car handledCar = new Car(-1);
 	
 	// Constructor
 	public Charger(int id, int chargingStationId, ArrayList<Car> waitingCars, Lock waitingCarsGuard, ArrayList<int[]> listenerComChannel){
@@ -43,7 +43,8 @@ public class Charger  extends Thread{
 		 * 3. stop charging (set self to free))
 		 */
 		logger.info("charger " + this.id + " starting ....");
-		while (true) {
+		long start = System.currentTimeMillis();
+		while(System.currentTimeMillis() - start < Standard.chargerLifeDuration) {
 			pop();
 			start_charge();
 			stop_charge();
@@ -56,7 +57,7 @@ public class Charger  extends Thread{
 		 */
 		long start = System.currentTimeMillis();
 		while ((System.currentTimeMillis() - start) < Standard.chargeDuration) {
-			// wait 2 seconds
+			// wait 3 seconds
 		}
 
 	}
@@ -79,9 +80,11 @@ public class Charger  extends Thread{
 		
 		// send done message to the car
 		int[] message = {handledCar.id, Standard.DONE};
+		Standard.messageTransmitReceiveSimulationGuard.lock();
 		listenerComChannel.add(message);
+		Standard.messageTransmitReceiveSimulationGuard.unlock();
 		// reset
-		handledCar = null;
+		handledCar = new Car(-1);
 
 	}
 
@@ -90,7 +93,7 @@ public class Charger  extends Thread{
 		 * this function to pop a car from car waiting list and store the car for charge use
 		 */
 		logger.info("Waiting for new car");
-		while (handledCar == null) {
+		while (handledCar.id == -1) {
 			waitingCarsGuard.lock();
 			if (waitingCars.size() > 0) {
 				handledCar = waitingCars.remove(0);
@@ -125,7 +128,7 @@ public class Charger  extends Thread{
 	// to strings
 	@Override
 	public String toString() {
-		return "Charger [id=" + id + ", occupied=" + Boolean.toString(this.occupied) + "]";
+		return "Charger [id=" + id + ", occupied=" + this.occupied + "]";
 	}
 	 public static void main(String args[]) {
 	

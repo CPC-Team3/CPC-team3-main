@@ -14,9 +14,9 @@ public class ChargingSystem extends Thread{
 	 */
 	
 	// Attribute
-	private String bookFilePath;
-	private ChargingStation station1; // main charging station
-	private Controller energyController1;
+	public String bookFilePath;
+	public ChargingStation station1; // main charging station
+	public Controller energyController1;
 	ArrayList<int[]> carComChannel;
 	Log logger;
 	int id;
@@ -29,8 +29,6 @@ public class ChargingSystem extends Thread{
 		this.carComChannel = carComChannel;
 		
 	}
-	
-	
 
 	// functionalities
 	public void init(){

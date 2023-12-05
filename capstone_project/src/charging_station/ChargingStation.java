@@ -1,6 +1,7 @@
 package charging_station;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
@@ -21,8 +22,8 @@ public class ChargingStation extends Thread{
 	Log logger;
 	
 	
-	private ArrayList<Car> waitingCars = new ArrayList<>(); // queue of waiting cars in the charging station
-	private final Lock waitingCarGuard = new ReentrantLock();;
+	public ArrayList<Car> waitingCars = new ArrayList<>(); // queue of waiting cars in the charging station
+	public final Lock waitingCarGuard = new ReentrantLock();;
 	
 	
 	// Constructor
@@ -37,10 +38,6 @@ public class ChargingStation extends Thread{
 	
 	}
 
-
-	
-
-
 	// Functionalities
 	public void run() {
 		/*
@@ -48,7 +45,6 @@ public class ChargingStation extends Thread{
 		 * run each charger as a process to charge handle the cars in car queue
 		 * 
 		 */
-		
 		
 		//run each charger
 		logger.info("starting each charger");
@@ -58,66 +54,75 @@ public class ChargingStation extends Thread{
 		}
 		
 		// run listening
-				logger.info("starting listening function");
-				try {
-					listening(bookFilePath);
-				} catch (listeningException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
+		logger.info("starting listening function");
+		try {
+			listening(bookFilePath);
+		} catch (listeningException e) {
+			
+			e.printStackTrace();
+		}
 		
 		// wait all the charger to turned off
-
 		logger.info("waiting for all charger to finish");
 		for (Thread thread : chargerThreads) {
 			try {
 				thread.join();
 			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
+
 				e.printStackTrace();
 			}
 		}
-		
-		
 	}
 	
 	void listening( String bookFilePath) throws listeningException{
 		/* 
 		 * read the booking file and wait for new incoming cars and put them in car waiting 
 		 */
-			
-		// put new incoming vehicle to queue
 		
-		boolean SimulationExecuted = false; // for simulation
-		while(true) {
+		//boolean SimulationExecuted = false; // for simulation
+		// put new incoming vehicle to queue
+		long start = System.currentTimeMillis();
+		while(System.currentTimeMillis() - start < Standard.stationLifeDuration) {
 			
 			// for now we just use fix list of vehicle
-			for (int i = 0 ; i < 10 && !SimulationExecuted; i++) {
-				logger.info("adding fake cars " + i);
-				waitingCars.add(new Car(i));
-			SimulationExecuted = true;
-			}
+			//for (int i = 0 ; i < 10 && !SimulationExecuted; i++) {
+			//	logger.info("adding fake cars " + i);
+			//	waitingCarGuard.lock();
+			//	waitingCars.add(new Car(i));
+			//	waitingCarGuard.unlock();
+			//}
+			//SimulationExecuted = true;
 			
 			// read any message
-			for(int[] message : listenerComChannel) {
-				if(message[1] == Standard.REQUEST) {
-					logger.info("cars with id " + message[0] + " request to charge");
-					waitingCars.add(new Car(message[0]));
-					logger.info("cars with id " + message[0] + " is added to waiting queue");
-					listenerComChannel.remove(message);
+			Standard.messageTransmitReceiveSimulationGuard.lock();
+			Iterator<int[]> iterator = listenerComChannel.iterator();
+			while(iterator.hasNext()) {
+				int[] element = iterator.next();
+				if(element[1] == Standard.REQUEST) {
+					logger.info("cars with id " + element[0] + " request to charge");
+					waitingCarGuard.lock();
+					waitingCars.add(new Car(element[0]));
+					logger.info("cars with id " + element[0] + " is added to waiting queue");
+					waitingCarGuard.unlock();
+					iterator.remove();
 				}
-				if(message[1] == Standard.LEAVE) {
-					logger.info("cars with id " + message[0] + " leave the station");
-					waitingCars.remove(new Car(message[0]));
+				if(element[1] == Standard.LEAVE) {
+					logger.info("cars with id " + element[0] + " leave the station");
+					waitingCarGuard.lock();
 					for (Car car: waitingCars) {
-						if (car.getId_() == message[0]) {
-							logger.info("cars with id " + message[0] + " is removed from waiting queue");
+						if (car.getId_() == element[0]) {
+							logger.info("cars with id " + element[0] + " is removed from waiting queue");
 							waitingCars.remove(car);
 						}
 					}
-					listenerComChannel.remove(message);
+					waitingCarGuard.unlock();
+					iterator.remove();
 				}
-			}	
+				
+				
+			}
+			Standard.messageTransmitReceiveSimulationGuard.unlock();
+				
 		}
 		// put vehicle from book file to queue (if booking time >= current time)
 	}
@@ -175,8 +180,9 @@ public class ChargingStation extends Thread{
 	public static void main(String args[]) {
 		 
 		 String bookFilePath = "dummy";
+		 ArrayList<int[]> dummyMessageQueue = new ArrayList<int[]>();
 		 
-		 ChargingStation station1 = new ChargingStation(0, bookFilePath,new ArrayList<int[]>());
+		 ChargingStation station1 = new ChargingStation(0, bookFilePath, dummyMessageQueue);
 		 for (int i = 0; i < 2; i++) {
 			 station1.addCharger(i);
 		 }

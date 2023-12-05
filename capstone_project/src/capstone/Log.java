@@ -29,7 +29,7 @@ public class Log{
 		this.componentName = componentName;
 		init();
 	}
-	
+
 	public void init(){
 		/*
 		 * initialize log object, log file and log handler

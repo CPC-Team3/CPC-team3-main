@@ -2,23 +2,26 @@
 package vehicle;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 
 import capstone.Standard;
 
 public class Car extends Thread{
 	// Attribute
-    public int id;
+    public int id = -1;
     ArrayList<int[]> comChannel;
     long start = System.currentTimeMillis();
     
     // constructors
     public Car(int id) {
         this.id = id;
+        
     }
     
     
-    public Car(int id2, ArrayList<int[]> comChannel) {
+    public Car(int id, ArrayList<int[]> comChannel) {
 		this.comChannel =comChannel;
+		this.id = id;
 	}
 
 
@@ -38,7 +41,9 @@ public class Car extends Thread{
     	
     	//request
     	int[] message = {this.id,Standard.REQUEST};
+		Standard.messageTransmitReceiveSimulationGuard.lock();
     	comChannel.add(message);
+		Standard.messageTransmitReceiveSimulationGuard.unlock();
     	//wait 
     	
     }
@@ -51,14 +56,18 @@ public class Car extends Thread{
     	boolean done = false;
 		while(!done) {
     		// if done
-    		for (int[] message : comChannel) {
-    			if (message[0] == id) {
-    				if(message[1] == Standard.DONE) {
+			Standard.messageTransmitReceiveSimulationGuard.lock();
+			Iterator<int[]> iterator = comChannel.iterator();
+    		while (iterator.hasNext()) {
+				int[] element = iterator.next();
+    			if (element[0] == id) {
+    				if(element[1] == Standard.DONE) {
     					done = true;
     					break;
     				}
     			}
     		}
+			Standard.messageTransmitReceiveSimulationGuard.unlock();
     		// if time up
     		if(!done &&((System.currentTimeMillis() - start) > Standard.MAX_WAIT) ) {
     			leave();
@@ -75,7 +84,9 @@ public class Car extends Thread{
     
     void leave() {
     	int[] message = {this.id,Standard.LEAVE};
+		Standard.messageTransmitReceiveSimulationGuard.lock();
     	comChannel.add(message);
+		Standard.messageTransmitReceiveSimulationGuard.unlock();
     }
     
     public int getId_() {
