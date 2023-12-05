@@ -15,7 +15,7 @@ public class Controller extends Thread{
 	private ArrayList<Energy> EnergySource = new ArrayList<Energy>(); // list of energy source
 	Log logger;
 	Energy currentEnergySource;
-	Boolean output = false;
+	boolean output = false;
 	ArrayList<Weather> wheatherForecast;
 	
 	// Constructor

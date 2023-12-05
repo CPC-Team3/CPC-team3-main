@@ -49,6 +49,7 @@ public class Charger  extends Thread{
 			start_charge();
 			stop_charge();
 		}
+		logger.info("charger " + this.id + " shuting down");
 	}
 
 	public void charging() {

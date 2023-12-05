@@ -72,6 +72,7 @@ public class ChargingStation extends Thread{
 				e.printStackTrace();
 			}
 		}
+		logger.info("All charging station components are off");
 	}
 	
 	void listening( String bookFilePath) throws listeningException{
@@ -82,6 +83,7 @@ public class ChargingStation extends Thread{
 		//boolean SimulationExecuted = false; // for simulation
 		// put new incoming vehicle to queue
 		long start = System.currentTimeMillis();
+		logger.info("Listener component is on");
 		while(System.currentTimeMillis() - start < Standard.stationLifeDuration) {
 			
 			// for now we just use fix list of vehicle
@@ -109,11 +111,13 @@ public class ChargingStation extends Thread{
 				if(element[1] == Standard.LEAVE) {
 					logger.info("cars with id " + element[0] + " leave the station");
 					waitingCarGuard.lock();
-					for (Car car: waitingCars) {
-						if (car.getId_() == element[0]) {
-							logger.info("cars with id " + element[0] + " is removed from waiting queue");
-							waitingCars.remove(car);
-						}
+					Iterator<Car> carIterator = waitingCars.iterator();
+					while (carIterator.hasNext()) {
+					    Car car = carIterator.next();
+					    if (car.getId_() == element[0]) {
+					        logger.info("Car with id " + element[0] + " is removed from waiting queue");
+					        carIterator.remove();
+					    }
 					}
 					waitingCarGuard.unlock();
 					iterator.remove();
@@ -121,9 +125,9 @@ public class ChargingStation extends Thread{
 				
 				
 			}
-			Standard.messageTransmitReceiveSimulationGuard.unlock();
-				
+			Standard.messageTransmitReceiveSimulationGuard.unlock();	
 		}
+		logger.info("Listener component is off" );
 		// put vehicle from book file to queue (if booking time >= current time)
 	}
 	
