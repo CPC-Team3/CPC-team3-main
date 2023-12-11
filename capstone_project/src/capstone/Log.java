@@ -21,11 +21,11 @@ public class Log{
 	String componentName;
 	
 	// Constructor and initializer
-	public Log(String logFilelName, String componentName){
+	public Log(String logFilelName, String componentName, String date){
 		/*
 		 * initialize the file name for logging and the component name where the log is used
 		 */
-		this.logFilelName = logFilelName;
+		this.logFilelName = logFilelName + "_" + date;
 		this.componentName = componentName;
 		init();
 	}
@@ -37,7 +37,7 @@ public class Log{
 		try {
 			
 			log = Logger.getLogger(componentName);
-			fileHandler = new FileHandler( "log\\" + this.logFilelName + "_log_file.log");
+			fileHandler = new FileHandler( "log\\" + this.logFilelName + "_log.log");
 			formatter = new SimpleFormatter();
 			fileHandler.setFormatter(formatter);
 			log.addHandler(fileHandler);
@@ -66,7 +66,7 @@ public class Log{
     	 * test init function and logging function
     	 */
     	
-    	Log emLog= new Log("system1", "System 1");
+    	Log emLog= new Log("system1", "System 1", Standard.date);
 		emLog.init();
 		emLog.log.info("info message");
 		emLog.log.warning("warning message");

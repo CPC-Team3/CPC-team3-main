@@ -6,6 +6,7 @@ import capstone.Standard;
 import vehicle.Car;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
@@ -20,6 +21,7 @@ public class Charger  extends Thread{
 	int chargingStationId;
 	Log logger;
 	Car handledCar = new Car(-1);
+	String date = "";
 	
 	// Constructor
 	public Charger(int id, int chargingStationId, ArrayList<Car> waitingCars, Lock waitingCarsGuard, ArrayList<int[]> listenerComChannel){
@@ -27,12 +29,15 @@ public class Charger  extends Thread{
 		 * input : id of the charger, id of charger station that this charger belong to, queue of waiting car, guard for the waiting queue 
 		 */
 		setId(id);
-		logger = new Log("charger\\charger"+String.valueOf(getId_()),"Charger "+ String.valueOf(getId_()));
+		logger = new Log("charger\\charger"+String.valueOf(getId_()),"Charger "+ String.valueOf(getId_()), Standard.date );
 		setChargingStationId(chargingStationId);
 		this.waitingCars = waitingCars;
 		this.waitingCarsGuard = waitingCarsGuard;
 		this.listenerComChannel = listenerComChannel;
+		setDate(Standard.date);
 	}
+
+	
 
 	// Functionality
 	public void run() {
@@ -48,11 +53,17 @@ public class Charger  extends Thread{
 			pop();
 			start_charge();
 			stop_charge();
+			
+			// update date and create new logger for new date
+			if (this.date != Standard.date) {
+				setDate(Standard.date);
+				logger = new Log("charger\\charger"+String.valueOf(getId_()),"Charger "+ String.valueOf(getId_()), Standard.date );
+			}
 		}
 		logger.info("charger " + this.id + " shuting down");
 	}
 
-	public void charging() {
+	private void charging() {
 		/*
 		 * this function is to simulate charging a car by implementing delay function or sleep function
 		 */
@@ -124,6 +135,9 @@ public class Charger  extends Thread{
 	}
 	public void setOccupied(boolean occupied) {
 		this.occupied = occupied;
+	}
+	public void setDate(String date) {
+		this.date = date;
 	}
 	
 	// to strings

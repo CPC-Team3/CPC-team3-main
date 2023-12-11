@@ -3,6 +3,7 @@ package system;
 import java.util.ArrayList;
 
 import capstone.Log;
+import capstone.Standard;
 import charging_station.ChargingStation;
 import energy_controller.Controller;
 import energy_controller.Energy;
@@ -20,13 +21,14 @@ public class ChargingSystem extends Thread{
 	ArrayList<int[]> carComChannel;
 	Log logger;
 	int id;
-	
+	String date;
 	
 	// constructor
 	public ChargingSystem(String bookFilePath, ArrayList<int[]> carComChannel) {
 		this.bookFilePath = bookFilePath;
-		logger = new Log("system\\system"+String.valueOf(getId_()),"System "+ String.valueOf(getId_()));
+		logger = new Log("system\\system"+String.valueOf(getId_()),"System "+ String.valueOf(getId_()), Standard.date);
 		this.carComChannel = carComChannel;
+		setDate(Standard.date);
 		
 	}
 
@@ -68,6 +70,11 @@ public class ChargingSystem extends Thread{
 			
 			e.printStackTrace();
 		}
+		// update date and create new logger for new date
+		if (this.date != Standard.date) {
+			setDate(Standard.date);
+			logger = new Log("system\\system"+String.valueOf(getId_()),"System "+ String.valueOf(getId_()), Standard.date);
+		}
 		logger.info("system1 finish");
 	}
 	
@@ -75,6 +82,10 @@ public class ChargingSystem extends Thread{
 	private int getId_() {
 		return id;
 	}
+	public void setDate(String date) {
+		this.date = date;
+	}
+	
 	
 	//simulation
 	public static void main(String[] args) {

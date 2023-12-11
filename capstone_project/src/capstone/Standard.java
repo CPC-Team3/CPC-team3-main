@@ -26,6 +26,30 @@ public class Standard {
 	// message guard - (no messages is transmitted or received at the same time during simulation)
 	public final static Lock messageTransmitReceiveSimulationGuard = new ReentrantLock();
 	
+	// date
+	public static volatile String date = "1_1_2023";
+	private static int day = 1;
+	private static int month = 1;
+	private static int year = 2023;
+	public static void updateDate(String date) {
+		if (date != null) {
+			Standard.date = date;
+		} else {
+			day++;
+			if ((month%2 == 0 && day > 30) || (month%2 == 1 && day > 31)) {
+				month++;
+				day = 1;
+			}
+			if ((month > 12)) {
+				year++;
+				month =1;
+				day = 1;
+			}
+			date = String.valueOf(day) + "_" + String.valueOf(month) + "_" + String.valueOf(year);
+			
+		}
+	}
+	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 

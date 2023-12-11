@@ -17,13 +17,15 @@ public class Controller extends Thread{
 	Energy currentEnergySource;
 	boolean output = false;
 	ArrayList<Weather> wheatherForecast;
+	String date;
 	
 	// Constructor
 	public Controller(int id, ArrayList<Weather> wheatherForecast){
-		logger = new Log("controller\\controller"+String.valueOf(this.id),"Controller "+ String.valueOf(this.id));
+		logger = new Log("controller\\controller"+String.valueOf(this.id),"Controller "+ String.valueOf(this.id), Standard.date);
 		logger.init();
 		this.id = id;
 		this.wheatherForecast = wheatherForecast;
+		setDate(Standard.date);
 	}
 	
 	// Functionalities
@@ -58,7 +60,11 @@ public class Controller extends Thread{
 				setWeather = currentWeather;
 					
 			}
-					
+			// update date and create new logger for new date
+			if (this.date != Standard.date) {
+				setDate(Standard.date);
+				logger = new Log("controller\\controller"+String.valueOf(this.id),"Controller "+ String.valueOf(this.id), Standard.date);
+			}		
 			
 		}
 	}
@@ -107,6 +113,10 @@ public class Controller extends Thread{
 	
 	void removeEnergySource(Energy unwantedEnergy) {
 		this.EnergySource.remove(unwantedEnergy);
+	}
+	
+	public void setDate(String date) {
+		this.date = date;
 	}
 	
 	

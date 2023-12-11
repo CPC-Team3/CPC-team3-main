@@ -20,6 +20,7 @@ public class ChargingStation extends Thread{
 	
 	String bookFilePath; // list of booking
 	Log logger;
+	String date;
 	
 	
 	public ArrayList<Car> waitingCars = new ArrayList<>(); // queue of waiting cars in the charging station
@@ -31,10 +32,11 @@ public class ChargingStation extends Thread{
 		/*
 		 * input : id of the charging station
 		 */
-		logger = new Log("station\\ChargingStation"+String.valueOf(this.id),"Charging Station "+ String.valueOf(this.id));
+		logger = new Log("station\\ChargingStation"+String.valueOf(this.id),"Charging Station "+ String.valueOf(this.id), Standard.date);
 		setId(id);
 		this.bookFilePath = bookFilePath;
 		this.listenerComChannel = comChannel;
+		setDate(Standard.date);
 	
 	}
 
@@ -125,7 +127,13 @@ public class ChargingStation extends Thread{
 				
 				
 			}
-			Standard.messageTransmitReceiveSimulationGuard.unlock();	
+			Standard.messageTransmitReceiveSimulationGuard.unlock();
+			
+			// update date and create new logger for new date
+			if (this.date != Standard.date) {
+				setDate(Standard.date);
+				logger = new Log("station\\ChargingStation"+String.valueOf(this.id),"Charging Station "+ String.valueOf(this.id), Standard.date);
+			}
 		}
 		logger.info("Listener component is off" );
 		// put vehicle from book file to queue (if booking time >= current time)
@@ -175,6 +183,9 @@ public class ChargingStation extends Thread{
 	
 	public Lock getWaitingCarGuard() {
 		return waitingCarGuard;
+	}
+	public void setDate(String date) {
+		this.date = date;
 	}
 	
 	
