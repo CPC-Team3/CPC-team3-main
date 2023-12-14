@@ -1,0 +1,14 @@
+Dec 14, 2023 7:56:45 PM capstone.Log init
+INFO: Loging system for System 0 started
+Dec 14, 2023 7:56:45 PM capstone.Log info
+INFO: starting system1
+Dec 14, 2023 7:56:45 PM capstone.Log info
+INFO: Initialize charging station
+Dec 14, 2023 7:56:45 PM capstone.Log info
+INFO: Charging station is ready
+Dec 14, 2023 7:56:45 PM capstone.Log info
+INFO: Initialize energy controller
+Dec 14, 2023 7:56:46 PM capstone.Log info
+INFO: energy controller is ready
+Dec 14, 2023 7:56:46 PM capstone.Log info
+INFO: starting all the component
