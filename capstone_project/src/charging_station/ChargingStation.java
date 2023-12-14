@@ -13,31 +13,29 @@ import vehicle.Car;
 public class ChargingStation extends Thread{
 	
 	// Attributes	
-	int id; // charging station id
-	ArrayList<Charger> chargers = new ArrayList<Charger>(); // list of charger in the charging station
-	ArrayList<Thread> chargerThreads = new ArrayList<Thread>(); // list of charger in the charging station
-	ArrayList<int[]> listenerComChannel; 
+	public int id; // charging station id
+	public ArrayList<Charger> chargers = new ArrayList<Charger>(); // list of charger in the charging station
+	public ArrayList<Thread> chargerThreads = new ArrayList<Thread>(); // list of charger in the charging station
+	public ArrayList<int[]> listenerComChannel; 
 	
 	String bookFilePath; // list of booking
 	Log logger;
 	String date;
 	
-	
 	public ArrayList<Car> waitingCars = new ArrayList<>(); // queue of waiting cars in the charging station
 	public final Lock waitingCarGuard = new ReentrantLock();;
-	
 	
 	// Constructor
 	public ChargingStation(int id,String bookFilePath, ArrayList<int[]> comChannel) {
 		/*
 		 * input : id of the charging station
 		 */
-		logger = new Log("station\\ChargingStation"+String.valueOf(this.id),"Charging Station "+ String.valueOf(this.id), Standard.date);
+		
 		setId(id);
+		logger = new Log("station\\ChargingStation_"+String.valueOf(this.id),"Charging Station "+ String.valueOf(this.id), Standard.date);
 		this.bookFilePath = bookFilePath;
 		this.listenerComChannel = comChannel;
 		setDate(Standard.date);
-	
 	}
 
 	// Functionalities
@@ -55,7 +53,7 @@ public class ChargingStation extends Thread{
 			charger.start();
 		}
 		
-		// run listening
+		// run listening (read the  booking file and real time request)
 		logger.info("starting listening function");
 		try {
 			listening(bookFilePath);
@@ -124,8 +122,14 @@ public class ChargingStation extends Thread{
 					waitingCarGuard.unlock();
 					iterator.remove();
 				}
-				
-				
+				if(element[1] == Standard.BOOK) {
+					logger.info("cars with id " + element[0] + " book slot at t = "+  element[2]);
+					
+					// example
+					book(element[0], element[2]);
+					
+					iterator.remove();
+				}
 			}
 			Standard.messageTransmitReceiveSimulationGuard.unlock();
 			
@@ -139,9 +143,7 @@ public class ChargingStation extends Thread{
 		// put vehicle from book file to queue (if booking time >= current time)
 	}
 	
-
-	
-	void book(int id, double timeSlot) {
+	void book(int id, int timeSlot) {
 		/* 
 		 * book a time slot by any car to charge
 		 */
@@ -154,7 +156,6 @@ public class ChargingStation extends Thread{
 		chargers.add(new Charger(chargerId, this.id, waitingCars, waitingCarGuard, listenerComChannel));
 		logger.info(" adding new charger to station "+ getId_() + " with id " + chargerId);
 	}
-	
 	
 	// setters and getters
 	
@@ -176,7 +177,6 @@ public class ChargingStation extends Thread{
 		return "Charging Station [id=" + this.id + "]";
 	}
 
-
 	public int getId_() {
 		return this.id;
 	}
@@ -187,9 +187,6 @@ public class ChargingStation extends Thread{
 	public void setDate(String date) {
 		this.date = date;
 	}
-	
-	
-	
 	
 	// test
 	public static void main(String args[]) {
@@ -202,9 +199,5 @@ public class ChargingStation extends Thread{
 			 station1.addCharger(i);
 		 }
 		 station1.start();
-		 
-		 
 	 }
-	
-
 }

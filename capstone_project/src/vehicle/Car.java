@@ -9,55 +9,89 @@ import capstone.Standard;
 public class Car extends Thread{
 	// Attribute
     public int id = -1;
-    ArrayList<int[]> comChannel;
-    long start = System.currentTimeMillis();
+    ArrayList<int[]> comChannel;	// communication channel for charging station 0
+    ArrayList<int[]> comChannel2;	// communication channel for charging station 1
+    ArrayList<ArrayList<int[]>> comch = new ArrayList<ArrayList<int[]>>(); // list of communication channel
+    long start;						// start waiting time
+	boolean done = false;			// either the car is already charged or not
+	String carCat;  				// Category of the car (fake car/ real time car/ booking car)
+	int bookingTime;				// seconds
+	int bookingStation;
+	
     
-    // constructors
+    // constructors - fake car
     public Car(int id) {
         this.id = id;
-        
     }
     
-    
-    public Car(int id, ArrayList<int[]> comChannel) {
-		this.comChannel =comChannel;
+    // constructors - real time car
+    public Car(int id, ArrayList<int[]> comChannel , ArrayList<int[]> comChannel2){
 		this.id = id;
+		this.comChannel =comChannel;
+		this.comChannel2 =comChannel2;
+		comch.add(comChannel);
+		comch.add(comChannel2);
+		this.carCat = "rtCar";
 	}
-
-
+    
+ // constructors - real time car
+    public Car(int id, ArrayList<int[]> comChannel , ArrayList<int[]> comChannel2, int time, int bookingStation){
+		this.id = id;
+		this.comChannel =comChannel;
+		this.comChannel2 =comChannel2;
+		comch.add(comChannel);
+		comch.add(comChannel2);
+		this.carCat = "bookingCar";
+		this.bookingStation  = bookingStation;
+	}
+    
 	public void run() {
-    	request();
-    	try {
-			wait_();
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+		if(carCat == "rtCar") {
+			for (int i =0 ; i < comch.size()&& !done; i ++) {  // try for every channel/charging station to charge
+				start = System.currentTimeMillis();
+				request(i);
+		    	try {
+					wait_(i);
+				} catch (InterruptedException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+		}
+		if(carCat == "bookingCar"){
+			book(bookingStation);
+	    	try {
+	    		start = System.currentTimeMillis();
+				wait_(bookingStation);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}
     }
     
-    
     // functionalities
-    void request() {
+    void request(int i) {
     	
     	//request
     	int[] message = {this.id,Standard.REQUEST};
 		Standard.messageTransmitReceiveSimulationGuard.lock();
-    	comChannel.add(message);
+		comch.get(i).add(message);
 		Standard.messageTransmitReceiveSimulationGuard.unlock();
     	//wait 
     	
     }
     
-    void wait_() throws InterruptedException {
+    void wait_(int i) throws InterruptedException {
     	/*
     	 * wait for maximum duration
     	 * wait for done message at the same time
+    	 * if timeout, try another charging station/ communication channel
     	 */
-    	boolean done = false;
 		while(!done) {
     		// if done
 			Standard.messageTransmitReceiveSimulationGuard.lock();
-			Iterator<int[]> iterator = comChannel.iterator();
+			Iterator<int[]> iterator = comch.get(i).iterator();
     		while (iterator.hasNext()) {
 				int[] element = iterator.next();
     			if (element[0] == id) {
@@ -70,22 +104,31 @@ public class Car extends Thread{
 			Standard.messageTransmitReceiveSimulationGuard.unlock();
     		// if time up
     		if(!done &&((System.currentTimeMillis() - start) > Standard.MAX_WAIT) ) {
-    			leave();
+    			leave(i);
     			break;
     		}
-    		
-    		
     	}
     }
     
-    void book() {
+    void book(int i) {
+    	//book
+    	int[] message = {this.id,Standard.BOOK, bookingTime};
+    	Standard.messageTransmitReceiveSimulationGuard.lock();
+    	comch.get(i).add(message);
+    	Standard.messageTransmitReceiveSimulationGuard.unlock();
+    	try {
+			Thread.sleep(bookingTime*1000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+    	
     	
     }
     
-    void leave() {
+    void leave(int i) {
     	int[] message = {this.id,Standard.LEAVE};
 		Standard.messageTransmitReceiveSimulationGuard.lock();
-    	comChannel.add(message);
+		comch.get(i).add(message);
 		Standard.messageTransmitReceiveSimulationGuard.unlock();
     }
     

@@ -6,7 +6,6 @@ import capstone.Standard;
 import vehicle.Car;
 
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
@@ -29,7 +28,7 @@ public class Charger  extends Thread{
 		 * input : id of the charger, id of charger station that this charger belong to, queue of waiting car, guard for the waiting queue 
 		 */
 		setId(id);
-		logger = new Log("charger\\charger"+String.valueOf(getId_()),"Charger "+ String.valueOf(getId_()), Standard.date );
+		logger = new Log("charger\\station_"+ String.valueOf(chargingStationId) +"_charger_"+String.valueOf(getId_()),"Charger "+ String.valueOf(getId_()), Standard.date );
 		setChargingStationId(chargingStationId);
 		this.waitingCars = waitingCars;
 		this.waitingCarsGuard = waitingCarsGuard;

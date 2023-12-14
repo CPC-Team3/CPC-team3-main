@@ -12,6 +12,7 @@ public class Standard {
 	public static final int REQUEST = 0;
 	public static final int LEAVE = 1;
 	public static final int DONE = 2;
+	public static final int BOOK = 3;
 	
 	// duration
 	public static final long MAX_WAIT = 15000; //Milliseconds

@@ -7,9 +7,9 @@ import capstone.exception_handler.listeningException;
 import system.ChargingSystem;
 import vehicle.Car;
 
-
 public class Simulation {
-	static volatile  ArrayList<int[]> comChannel = new ArrayList<int[]>();
+	static ArrayList<int[]> comChannel = new ArrayList<int[]>();
+	static ArrayList<int[]> comChannel2 = new ArrayList<int[]>();
 	static ArrayList<Car> simCar = new ArrayList<Car>();
 	
 	public static void run(){
@@ -19,11 +19,10 @@ public class Simulation {
 		//while (System.currentTimeMillis() - start < 20000) {
 		//}
 		
-		
 		// create car for simulation
 		int id_ = 0;
 		for (;id_<20; id_++) {
-			simCar.add(new Car(id_, comChannel));
+			simCar.add(new Car(id_, comChannel, comChannel2));
 		}
 		
 		// start the car
@@ -34,14 +33,14 @@ public class Simulation {
 		
 		// keep simulation alive
 		while(System.currentTimeMillis() - start < Standard.SimulationDuration) {
+			//change date
 		}
 	}
 	
-
 	public static void main(String[] args) throws listeningException, InterruptedException {
 		
 		//execute the system
-		ChargingSystem sys1 = new ChargingSystem("bookingFilePath", comChannel);
+		ChargingSystem sys1 = new ChargingSystem("bookingFilePath", "bookingFilePath2", comChannel, comChannel2);
 		sys1.start();
 
 		// execute some car
@@ -49,6 +48,3 @@ public class Simulation {
 		System.out.println("simulationfinish");
 	}
 }
-
-
-

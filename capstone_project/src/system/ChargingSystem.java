@@ -15,19 +15,26 @@ public class ChargingSystem extends Thread{
 	 */
 	
 	// Attribute
-	public String bookFilePath;
-	public ChargingStation station1; // main charging station
+	public String bookFilePath ;
+	public String bookFilePath2;
+	
 	public Controller energyController1;
 	ArrayList<int[]> carComChannel;
+	ArrayList<int[]> carComChannel2;
 	Log logger;
 	int id;
 	String date;
 	
+	public ChargingStation station1;
+	public ChargingStation station2;
+	
 	// constructor
-	public ChargingSystem(String bookFilePath, ArrayList<int[]> carComChannel) {
+	public ChargingSystem(String bookFilePath, String bookFilePath2, ArrayList<int[]> carComChannel, ArrayList<int[]> carComChannel2) {
 		this.bookFilePath = bookFilePath;
+		this.bookFilePath2 = bookFilePath2;
 		logger = new Log("system\\system"+String.valueOf(getId_()),"System "+ String.valueOf(getId_()), Standard.date);
 		this.carComChannel = carComChannel;
+		this.carComChannel2 = carComChannel2;
 		setDate(Standard.date);
 		
 	}
@@ -41,9 +48,14 @@ public class ChargingSystem extends Thread{
 		// initialize charging station
 		logger.info("Initialize charging station");
 		station1 = new ChargingStation(0,bookFilePath, carComChannel);
+		station2 = new ChargingStation(1,bookFilePath2, carComChannel2); 
+		
 		station1.addCharger(0);
 		station1.addCharger(1);
-		logger.info("Charging station is ready");
+		station2.addCharger(0);
+		station2.addCharger(1);
+		
+		logger.info("Charging stations is ready");
 		
 		// initialize energy controller
 		logger.info("Initialize energy controller");
@@ -59,12 +71,16 @@ public class ChargingSystem extends Thread{
 		logger.info("starting system1");
 		init();
 		
-		logger.info("starting all the component");
+		logger.info("starting first station");
 		station1.start();
+		logger.info("starting second station");
+		station2.start();
+		
 		energyController1.start();
 		
 		try {
 			station1.join();
+			station2.join();
 			energyController1.join();
 		} catch (InterruptedException e) {
 			
@@ -89,7 +105,7 @@ public class ChargingSystem extends Thread{
 	
 	//simulation
 	public static void main(String[] args) {
-		ChargingSystem sys1 = new ChargingSystem("bookingFilePath", new ArrayList<int[]>());
+		ChargingSystem sys1 = new ChargingSystem("bookingFilePath", "bookingFilePath2", new ArrayList<int[]>(), new ArrayList<int[]>());
 		sys1.start();
 		
 	}
