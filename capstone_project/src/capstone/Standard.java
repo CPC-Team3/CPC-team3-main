@@ -27,6 +27,9 @@ public class Standard {
 	// message guard - (no messages is transmitted or received at the same time during simulation)
 	public final static Lock messageTransmitReceiveSimulationGuard = new ReentrantLock();
 	
+	// starting time slot reference for booking
+	public static long  T0;  //Milliseconds
+	
 	// date
 	public static volatile String date = "1_1_2023";
 	private static int day = 1;

@@ -1,0 +1,42 @@
+Dec 15, 2023 1:01:19 AM capstone.Log init
+INFO: Loging system for Charging Station 0 started
+Dec 15, 2023 1:01:20 AM capstone.Log info
+INFO:  adding new charger to station 0 with id 0
+Dec 15, 2023 1:01:20 AM capstone.Log info
+INFO:  adding new charger to station 0 with id 1
+Dec 15, 2023 1:01:20 AM capstone.Log info
+INFO: starting each charger
+Dec 15, 2023 1:01:20 AM capstone.Log info
+INFO: starting charger 0
+Dec 15, 2023 1:01:20 AM capstone.Log info
+INFO: starting charger 1
+Dec 15, 2023 1:01:20 AM capstone.Log info
+INFO: starting listening function
+Dec 15, 2023 1:01:20 AM capstone.Log info
+INFO: Listener component is on
+Dec 15, 2023 1:01:20 AM capstone.Log info
+INFO: cars with id 0 request to charge
+Dec 15, 2023 1:01:20 AM capstone.Log info
+INFO: cars with id 0 is added to waiting queue
+Dec 15, 2023 1:01:20 AM capstone.Log info
+INFO: cars with id 1 request to charge
+Dec 15, 2023 1:01:20 AM capstone.Log info
+INFO: cars with id 1 is added to waiting queue
+Dec 15, 2023 1:01:20 AM capstone.Log info
+INFO: cars with id 2 request to charge
+Dec 15, 2023 1:01:20 AM capstone.Log info
+INFO: cars with id 2 is added to waiting queue
+Dec 15, 2023 1:01:20 AM capstone.Log info
+INFO: cars with id 7 book slot at t = 60000
+Dec 15, 2023 1:01:20 AM capstone.Log info
+INFO: cars with id 3 request to charge
+Dec 15, 2023 1:01:20 AM capstone.Log info
+INFO: cars with id 3 is added to waiting queue
+Dec 15, 2023 1:01:20 AM capstone.Log info
+INFO: cars with id 4 request to charge
+Dec 15, 2023 1:01:20 AM capstone.Log info
+INFO: cars with id 4 is added to waiting queue
+Dec 15, 2023 1:01:20 AM capstone.Log info
+INFO: cars with id 5 book slot at t = 5000
+Dec 15, 2023 1:01:20 AM capstone.Log info
+INFO: cars with id 6 book slot at t = 10000

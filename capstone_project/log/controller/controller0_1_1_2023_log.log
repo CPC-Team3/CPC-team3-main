@@ -1,0 +1,10 @@
+Dec 15, 2023 1:01:20 AM capstone.Log init
+INFO: Loging system for Controller 0 started
+Dec 15, 2023 1:01:20 AM capstone.Log init
+INFO: Loging system for Controller 0 started
+Dec 15, 2023 1:01:20 AM capstone.Log info
+INFO: Adding new energy source - Energy [ type: renewable, name: solar ]
+Dec 15, 2023 1:01:20 AM capstone.Log info
+INFO: Adding new energy source - Energy [ type: renewable, name: wind ]
+Dec 15, 2023 1:01:20 AM capstone.Log info
+INFO: Start supplying with current energy Energy [ type: renewable, name: solar ]

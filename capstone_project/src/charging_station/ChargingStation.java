@@ -23,7 +23,9 @@ public class ChargingStation extends Thread{
 	String date;
 	
 	public ArrayList<Car> waitingCars = new ArrayList<>(); // queue of waiting cars in the charging station
+	public ArrayList<Car> bookingCars = new ArrayList<>(); // queue of waiting cars in the charging station
 	public final Lock waitingCarGuard = new ReentrantLock();;
+	public final Lock bookingCarGuard = new ReentrantLock();;
 	
 	// Constructor
 	public ChargingStation(int id,String bookFilePath, ArrayList<int[]> comChannel) {
@@ -147,13 +149,17 @@ public class ChargingStation extends Thread{
 		/* 
 		 * book a time slot by any car to charge
 		 */
+		bookingCarGuard.lock();
+		bookingCars.add(new Car(id, timeSlot));
+		bookingCarGuard.unlock();
+		
 		
 		// Logging
 		
 	}
 	
 	public void addCharger(int chargerId) {
-		chargers.add(new Charger(chargerId, this.id, waitingCars, waitingCarGuard, listenerComChannel));
+		chargers.add(new Charger(chargerId, this.id, waitingCars, waitingCarGuard, bookingCars, bookingCarGuard, listenerComChannel));
 		logger.info(" adding new charger to station "+ getId_() + " with id " + chargerId);
 	}
 	

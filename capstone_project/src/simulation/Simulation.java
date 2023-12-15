@@ -14,6 +14,9 @@ public class Simulation {
 	
 	public static void run(){
 		
+		// set t0 as reference for a day measurement or booking slot 
+		Standard.T0 = System.currentTimeMillis();
+		
 		// wait certain time (to execute fake car by charging station)
 		long start = System.currentTimeMillis();
 		//while (System.currentTimeMillis() - start < 20000) {
@@ -21,19 +24,24 @@ public class Simulation {
 		
 		// create car for simulation
 		int id_ = 0;
-		for (;id_<20; id_++) {
+		
+		// add real time car
+		for (;id_<5; id_++) {
 			simCar.add(new Car(id_, comChannel, comChannel2));
 		}
+		// add booking car
+		simCar.add(new Car(5, comChannel, comChannel2,5000,0));
+		simCar.add(new Car(6, comChannel, comChannel2,10000,0));
+		simCar.add(new Car(7, comChannel, comChannel2,60000,0));
 		
-		// start the car
-		// for now fix arrival time
+		// start the car 
 		for(Car car: simCar) {
 			car.start();
 		}
 		
 		// keep simulation alive
 		while(System.currentTimeMillis() - start < Standard.SimulationDuration) {
-			//change date
+			//change date after a certain time 
 		}
 	}
 	

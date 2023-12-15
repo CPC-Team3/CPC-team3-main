@@ -15,16 +15,16 @@ public class Car extends Thread{
     long start;						// start waiting time
 	boolean done = false;			// either the car is already charged or not
 	String carCat;  				// Category of the car (fake car/ real time car/ booking car)
-	int bookingTime;				// seconds
+	public int bookingTime;				// seconds
 	int bookingStation;
 	
     
-    // constructors - fake car
+    // constructors - used for charger to store basic information needed or creating fake car
     public Car(int id) {
         this.id = id;
     }
     
-    // constructors - real time car
+    // constructors - spawn real time car
     public Car(int id, ArrayList<int[]> comChannel , ArrayList<int[]> comChannel2){
 		this.id = id;
 		this.comChannel =comChannel;
@@ -34,8 +34,8 @@ public class Car extends Thread{
 		this.carCat = "rtCar";
 	}
     
- // constructors - real time car
-    public Car(int id, ArrayList<int[]> comChannel , ArrayList<int[]> comChannel2, int time, int bookingStation){
+ // constructors - spawn real time car that want to book a time slot
+    public Car(int id, ArrayList<int[]> comChannel , ArrayList<int[]> comChannel2, int bookingTime, int bookingStation){
 		this.id = id;
 		this.comChannel =comChannel;
 		this.comChannel2 =comChannel2;
@@ -43,8 +43,15 @@ public class Car extends Thread{
 		comch.add(comChannel2);
 		this.carCat = "bookingCar";
 		this.bookingStation  = bookingStation;
+		this.bookingTime = bookingTime;
 	}
     
+    // constructors - used for charger to store basic information needed if the car book a time slot
+	public Car(int id, int timeSlot) {
+		this.id = id;
+		this.bookingTime = timeSlot;
+	}
+
 	public void run() {
 		if(carCat == "rtCar") {
 			for (int i =0 ; i < comch.size()&& !done; i ++) {  // try for every channel/charging station to charge

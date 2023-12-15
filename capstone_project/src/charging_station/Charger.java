@@ -6,6 +6,7 @@ import capstone.Standard;
 import vehicle.Car;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
@@ -14,6 +15,8 @@ public class Charger  extends Thread{
 	// Attribute
 	public Lock waitingCarsGuard; 
 	public ArrayList<Car> waitingCars;
+	public Lock bookingCarsGuard; 
+	public ArrayList<Car> bookingCars;
 	public ArrayList<int[]> listenerComChannel; 
 	int id;
 	boolean occupied;
@@ -23,7 +26,7 @@ public class Charger  extends Thread{
 	String date = "";
 	
 	// Constructor
-	public Charger(int id, int chargingStationId, ArrayList<Car> waitingCars, Lock waitingCarsGuard, ArrayList<int[]> listenerComChannel){
+	public Charger(int id, int chargingStationId, ArrayList<Car> waitingCars, Lock waitingCarsGuard, ArrayList<Car> bookingCars, Lock bookingCarsGuard, ArrayList<int[]> listenerComChannel){
 		/*
 		 * input : id of the charger, id of charger station that this charger belong to, queue of waiting car, guard for the waiting queue 
 		 */
@@ -32,11 +35,11 @@ public class Charger  extends Thread{
 		setChargingStationId(chargingStationId);
 		this.waitingCars = waitingCars;
 		this.waitingCarsGuard = waitingCarsGuard;
+		this.bookingCars = bookingCars;
+		this.bookingCarsGuard = bookingCarsGuard;
 		this.listenerComChannel = listenerComChannel;
 		setDate(Standard.date);
 	}
-
-	
 
 	// Functionality
 	public void run() {
@@ -101,18 +104,39 @@ public class Charger  extends Thread{
 
 	void pop() {
 		/*
-		 * this function to pop a car from car waiting list and store the car for charge use
+		 * this function to pop a car from car waiting list or booking list and store the car for charge use
 		 */
 		logger.info("Waiting for new car");
 		while (handledCar.id == -1) {
+			
+			// check for booking car
+			bookingCarsGuard.lock();
+			if (bookingCars.size() > 0) {
+				Iterator<Car> iterator = bookingCars.iterator();
+				while(iterator.hasNext()) {		
+					Car element = iterator.next();
+					if(System.currentTimeMillis()-Standard.T0 > (long)element.bookingTime && element.bookingTime > 1) {
+						handledCar = element;
+						iterator.remove();
+						logger.info("Car " + handledCar.id + " was taken from the booking queue and will be charged");
+					}
+				}
+			}
+			bookingCarsGuard.unlock();
+			//break if found
+			if (handledCar.id != -1) {
+				break;
+			}
+			
+			// check for real time waiting car
 			waitingCarsGuard.lock();
 			if (waitingCars.size() > 0) {
 				handledCar = waitingCars.remove(0);
+				logger.info("Car " + handledCar.id + " was taken from the waiting queue and will be charged");
 			}
 			waitingCarsGuard.unlock();
 			
 		}
-		logger.info("Car " + handledCar.id + " was taken from the queue and will be charged");
 	}
 	
 	
@@ -149,8 +173,10 @@ public class Charger  extends Thread{
 		 int stationId = 0;
 		 Lock waitinQueueGuard = new ReentrantLock(); // mutual exclusion for waiting car queue
 		 ArrayList<Car> waitingCars = new ArrayList<>(); // queue of waiting cars in the charging station
-		 Charger charger1 = new Charger(0,stationId,waitingCars, waitinQueueGuard, new ArrayList<int[]>() );
+		 Lock bookinQueueGuard = new ReentrantLock(); // mutual exclusion for waiting car queue
+		 ArrayList<Car> bookingCars = new ArrayList<>(); // queue of waiting cars in the charging station
+		 
+		 Charger charger1 = new Charger(0,stationId,waitingCars, waitinQueueGuard,bookingCars,bookinQueueGuard, new ArrayList<int[]>() );
 		 charger1.run();
 	 }
-	
 }

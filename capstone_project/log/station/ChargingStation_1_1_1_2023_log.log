@@ -1,0 +1,16 @@
+Dec 15, 2023 1:01:19 AM capstone.Log init
+INFO: Loging system for Charging Station 1 started
+Dec 15, 2023 1:01:20 AM capstone.Log info
+INFO:  adding new charger to station 1 with id 0
+Dec 15, 2023 1:01:20 AM capstone.Log info
+INFO:  adding new charger to station 1 with id 1
+Dec 15, 2023 1:01:20 AM capstone.Log info
+INFO: starting each charger
+Dec 15, 2023 1:01:20 AM capstone.Log info
+INFO: starting charger 0
+Dec 15, 2023 1:01:20 AM capstone.Log info
+INFO: starting charger 1
+Dec 15, 2023 1:01:20 AM capstone.Log info
+INFO: starting listening function
+Dec 15, 2023 1:01:20 AM capstone.Log info
+INFO: Listener component is on
