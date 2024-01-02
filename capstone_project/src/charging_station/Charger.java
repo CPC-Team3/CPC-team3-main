@@ -102,7 +102,7 @@ public class Charger  extends Thread{
 
 	}
 
-	void pop() {
+	public void pop() {
 		/*
 		 * this function to pop a car from car waiting list or booking list and store the car for charge use
 		 */

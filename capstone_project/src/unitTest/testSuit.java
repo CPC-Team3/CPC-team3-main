@@ -1,16 +1,7 @@
-/**
- * 
- */
 package unitTest;
 
-/**
- * 
- */
-public class takeCarFromListTest {
+public class testSuit {
 
-	/**
-	 * @param args
-	 */
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 
