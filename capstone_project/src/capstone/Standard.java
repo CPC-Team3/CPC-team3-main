@@ -16,7 +16,7 @@ public class Standard {
 	
 	// duration
 	public static final long MAX_WAIT = 15000; //Milliseconds
-	public static final long chargeDuration = 4000; //Milliseconds
+	public static final long chargeDuration = 5000; //Milliseconds
 
 	// component life time
 	public static final long chargerLifeDuration = 200000; //Milliseconds

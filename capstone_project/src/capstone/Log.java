@@ -1,6 +1,3 @@
-/**
- * 
- */
 package capstone;
 
 import java.io.IOException;
@@ -12,7 +9,7 @@ import capstone.exception_handler.InitException;
 import capstone.exception_handler.TestException;
 
 public class Log{
-	
+
 	// Attribute
 	Logger log;
 	FileHandler fileHandler;
@@ -48,7 +45,6 @@ public class Log{
 			}		
 	}
 	
-	
 	// Functionalities
 	public void info(String info) {
 		log.info(info);
@@ -61,7 +57,6 @@ public class Log{
 	
 	
     public static void main(String[] args) throws InitException, TestException {
-    	
     	/*
     	 * test init function and logging function
     	 */
