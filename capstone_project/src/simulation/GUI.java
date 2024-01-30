@@ -141,10 +141,8 @@ public class GUI extends Thread {
         //SwingUtilities.invokeLater(() -> charger_label[1][2] = new JLabel("Station 2, [Charger " + 3 + " ]: car " + system.station1.chargers.get(2).handledCar.id));
         //SwingUtilities.invokeLater(() -> charger_label[1][3] = new JLabel("Station 2, [Charger " + 4 + " ]: car " + system.station1.chargers.get(3).handledCar.id));
 
-        // SwingUtilities.invokeLater(() -> weather_label.setText("Weather: " +
-        // weather));
-        // SwingUtilities.invokeLater(() -> energy_source_label.setText("Energy Source:
-        // " + system.energyController1.currentEnergySource.name));
+        SwingUtilities.invokeLater(() -> weather_label.setText("Weather: " + system.energyController1.currentWeather));
+        SwingUtilities.invokeLater(() -> energy_source_label.setText("Energy Source:" + system.energyController1.currentEnergySource));
         
 
         try {

@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import capstone.Standard;
 import capstone.exception_handler.listeningException;
+import energy_controller.Weather;
 import system.ChargingSystem;
 import vehicle.Car;
 
@@ -11,8 +12,11 @@ public class Simulation {
 	static ArrayList<int[]> comChannel = new ArrayList<int[]>();
 	static ArrayList<int[]> comChannel2 = new ArrayList<int[]>();
 	static ArrayList<Car> simCar = new ArrayList<Car>();
-
+	static ArrayList<Weather> weatherForecast = new ArrayList<>();
 	public static void run() {
+		weatherForecast.add(new Weather(true, false, false)); // Sunny
+		weatherForecast.add(new Weather(false, true, false)); // Windy
+
 
 		// set t0 as reference for a day measurement or booking slot
 		Standard.T0 = System.currentTimeMillis();
@@ -38,6 +42,9 @@ public class Simulation {
 		for (Car car : simCar) {
 			car.start();
 		}
+		
+
+		
 
 		// keep simulation alive
 		while (System.currentTimeMillis() - start < Standard.SimulationDuration) {

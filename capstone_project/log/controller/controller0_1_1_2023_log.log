@@ -1,10 +1,238 @@
-Jan 30, 2024 12:37:45 PM capstone.Log init
+Jan 30, 2024 2:07:43 PM capstone.Log init
 INFO: Loging system for Controller 0 started
-Jan 30, 2024 12:37:45 PM capstone.Log init
+Jan 30, 2024 2:07:43 PM capstone.Log init
 INFO: Loging system for Controller 0 started
-Jan 30, 2024 12:37:45 PM capstone.Log info
+Jan 30, 2024 2:07:43 PM capstone.Log info
 INFO: Adding new energy source - Energy [ type: renewable, name: solar ]
-Jan 30, 2024 12:37:45 PM capstone.Log info
+Jan 30, 2024 2:07:43 PM capstone.Log info
 INFO: Adding new energy source - Energy [ type: renewable, name: wind ]
-Jan 30, 2024 12:37:45 PM capstone.Log info
+Jan 30, 2024 2:07:43 PM capstone.Log info
 INFO: Start supplying with current energy Energy [ type: renewable, name: solar ]
+Jan 30, 2024 2:07:43 PM capstone.Log info
+INFO: Changed weather to: Weather{sunny=false, windy=false, raining=true}
+Jan 30, 2024 2:07:44 PM capstone.Log info
+INFO: Switched to Wind Energy
+Jan 30, 2024 2:07:44 PM capstone.Log info
+INFO: Changed weather to: Weather{sunny=false, windy=true, raining=false}
+Jan 30, 2024 2:07:45 PM capstone.Log info
+INFO: Switched to Solar Energy
+Jan 30, 2024 2:07:45 PM capstone.Log info
+INFO: Changed weather to: Weather{sunny=true, windy=false, raining=false}
+Jan 30, 2024 2:07:46 PM capstone.Log info
+INFO: Switched to Wind Energy
+Jan 30, 2024 2:07:46 PM capstone.Log info
+INFO: Changed weather to: Weather{sunny=false, windy=true, raining=true}
+Jan 30, 2024 2:07:47 PM capstone.Log info
+INFO: Switched to Solar Energy
+Jan 30, 2024 2:07:47 PM capstone.Log info
+INFO: Changed weather to: Weather{sunny=true, windy=false, raining=true}
+Jan 30, 2024 2:07:48 PM capstone.Log info
+INFO: Switched to Wind Energy
+Jan 30, 2024 2:07:48 PM capstone.Log info
+INFO: Changed weather to: Weather{sunny=false, windy=true, raining=true}
+Jan 30, 2024 2:07:49 PM capstone.Log info
+INFO: Changed weather to: Weather{sunny=false, windy=true, raining=false}
+Jan 30, 2024 2:07:50 PM capstone.Log info
+INFO: Switched to Solar Energy
+Jan 30, 2024 2:07:50 PM capstone.Log info
+INFO: Changed weather to: Weather{sunny=true, windy=true, raining=false}
+Jan 30, 2024 2:07:51 PM capstone.Log info
+INFO: Changed weather to: Weather{sunny=false, windy=false, raining=true}
+Jan 30, 2024 2:07:52 PM capstone.Log info
+INFO: Switched to Wind Energy
+Jan 30, 2024 2:07:52 PM capstone.Log info
+INFO: Changed weather to: Weather{sunny=false, windy=true, raining=false}
+Jan 30, 2024 2:07:53 PM capstone.Log info
+INFO: Switched to Solar Energy
+Jan 30, 2024 2:07:53 PM capstone.Log info
+INFO: Changed weather to: Weather{sunny=true, windy=false, raining=false}
+Jan 30, 2024 2:07:54 PM capstone.Log info
+INFO: Changed weather to: Weather{sunny=false, windy=false, raining=true}
+Jan 30, 2024 2:07:55 PM capstone.Log info
+INFO: Changed weather to: Weather{sunny=true, windy=true, raining=false}
+Jan 30, 2024 2:07:56 PM capstone.Log info
+INFO: Switched to Wind Energy
+Jan 30, 2024 2:07:56 PM capstone.Log info
+INFO: Changed weather to: Weather{sunny=false, windy=true, raining=false}
+Jan 30, 2024 2:07:57 PM capstone.Log info
+INFO: Changed weather to: Weather{sunny=false, windy=true, raining=true}
+Jan 30, 2024 2:07:58 PM capstone.Log info
+INFO: Switched to Solar Energy
+Jan 30, 2024 2:07:58 PM capstone.Log info
+INFO: Changed weather to: Weather{sunny=true, windy=false, raining=false}
+Jan 30, 2024 2:08:00 PM capstone.Log info
+INFO: Changed weather to: Weather{sunny=true, windy=false, raining=true}
+Jan 30, 2024 2:08:01 PM capstone.Log info
+INFO: Switched to Wind Energy
+Jan 30, 2024 2:08:01 PM capstone.Log info
+INFO: Changed weather to: Weather{sunny=false, windy=true, raining=true}
+Jan 30, 2024 2:08:02 PM capstone.Log info
+INFO: Switched to Solar Energy
+Jan 30, 2024 2:08:02 PM capstone.Log info
+INFO: Changed weather to: Weather{sunny=true, windy=false, raining=true}
+Jan 30, 2024 2:08:03 PM capstone.Log info
+INFO: Switched to Wind Energy
+Jan 30, 2024 2:08:03 PM capstone.Log info
+INFO: Changed weather to: Weather{sunny=false, windy=true, raining=true}
+Jan 30, 2024 2:08:05 PM capstone.Log info
+INFO: Changed weather to: Weather{sunny=false, windy=true, raining=false}
+Jan 30, 2024 2:08:08 PM capstone.Log info
+INFO: Changed weather to: Weather{sunny=false, windy=true, raining=true}
+Jan 30, 2024 2:08:09 PM capstone.Log info
+INFO: Changed weather to: Weather{sunny=false, windy=false, raining=true}
+Jan 30, 2024 2:08:11 PM capstone.Log info
+INFO: Switched to Solar Energy
+Jan 30, 2024 2:08:11 PM capstone.Log info
+INFO: Changed weather to: Weather{sunny=true, windy=false, raining=true}
+Jan 30, 2024 2:08:12 PM capstone.Log info
+INFO: Changed weather to: Weather{sunny=false, windy=false, raining=true}
+Jan 30, 2024 2:08:13 PM capstone.Log info
+INFO: Changed weather to: Weather{sunny=true, windy=true, raining=false}
+Jan 30, 2024 2:08:14 PM capstone.Log info
+INFO: Switched to Wind Energy
+Jan 30, 2024 2:08:14 PM capstone.Log info
+INFO: Changed weather to: Weather{sunny=false, windy=true, raining=true}
+Jan 30, 2024 2:08:15 PM capstone.Log info
+INFO: Switched to Solar Energy
+Jan 30, 2024 2:08:15 PM capstone.Log info
+INFO: Changed weather to: Weather{sunny=true, windy=false, raining=false}
+Jan 30, 2024 2:08:16 PM capstone.Log info
+INFO: Changed weather to: Weather{sunny=true, windy=false, raining=true}
+Jan 30, 2024 2:08:17 PM capstone.Log info
+INFO: Changed weather to: Weather{sunny=true, windy=false, raining=false}
+Jan 30, 2024 2:08:18 PM capstone.Log info
+INFO: Changed weather to: Weather{sunny=true, windy=false, raining=true}
+Jan 30, 2024 2:08:19 PM capstone.Log info
+INFO: Switched to Wind Energy
+Jan 30, 2024 2:08:19 PM capstone.Log info
+INFO: Changed weather to: Weather{sunny=false, windy=true, raining=true}
+Jan 30, 2024 2:08:20 PM capstone.Log info
+INFO: Changed weather to: Weather{sunny=false, windy=true, raining=false}
+Jan 30, 2024 2:08:21 PM capstone.Log info
+INFO: Switched to Solar Energy
+Jan 30, 2024 2:08:21 PM capstone.Log info
+INFO: Changed weather to: Weather{sunny=true, windy=false, raining=false}
+Jan 30, 2024 2:08:23 PM capstone.Log info
+INFO: Changed weather to: Weather{sunny=false, windy=false, raining=true}
+Jan 30, 2024 2:08:25 PM capstone.Log info
+INFO: Changed weather to: Weather{sunny=true, windy=false, raining=false}
+Jan 30, 2024 2:08:26 PM capstone.Log info
+INFO: Switched to Wind Energy
+Jan 30, 2024 2:08:26 PM capstone.Log info
+INFO: Changed weather to: Weather{sunny=false, windy=true, raining=true}
+Jan 30, 2024 2:08:27 PM capstone.Log info
+INFO: Switched to Solar Energy
+Jan 30, 2024 2:08:27 PM capstone.Log info
+INFO: Changed weather to: Weather{sunny=true, windy=false, raining=true}
+Jan 30, 2024 2:08:28 PM capstone.Log info
+INFO: Changed weather to: Weather{sunny=false, windy=false, raining=true}
+Jan 30, 2024 2:08:30 PM capstone.Log info
+INFO: Switched to Wind Energy
+Jan 30, 2024 2:08:30 PM capstone.Log info
+INFO: Changed weather to: Weather{sunny=false, windy=true, raining=false}
+Jan 30, 2024 2:08:33 PM capstone.Log info
+INFO: Switched to Solar Energy
+Jan 30, 2024 2:08:33 PM capstone.Log info
+INFO: Changed weather to: Weather{sunny=true, windy=false, raining=true}
+Jan 30, 2024 2:08:34 PM capstone.Log info
+INFO: Switched to Wind Energy
+Jan 30, 2024 2:08:34 PM capstone.Log info
+INFO: Changed weather to: Weather{sunny=false, windy=true, raining=false}
+Jan 30, 2024 2:08:35 PM capstone.Log info
+INFO: Changed weather to: Weather{sunny=false, windy=true, raining=true}
+Jan 30, 2024 2:08:37 PM capstone.Log info
+INFO: Switched to Solar Energy
+Jan 30, 2024 2:08:37 PM capstone.Log info
+INFO: Changed weather to: Weather{sunny=true, windy=false, raining=true}
+Jan 30, 2024 2:08:40 PM capstone.Log info
+INFO: Switched to Wind Energy
+Jan 30, 2024 2:08:40 PM capstone.Log info
+INFO: Changed weather to: Weather{sunny=false, windy=true, raining=true}
+Jan 30, 2024 2:08:42 PM capstone.Log info
+INFO: Changed weather to: Weather{sunny=false, windy=false, raining=true}
+Jan 30, 2024 2:08:43 PM capstone.Log info
+INFO: Changed weather to: Weather{sunny=false, windy=true, raining=false}
+Jan 30, 2024 2:08:44 PM capstone.Log info
+INFO: Switched to Solar Energy
+Jan 30, 2024 2:08:44 PM capstone.Log info
+INFO: Changed weather to: Weather{sunny=true, windy=false, raining=true}
+Jan 30, 2024 2:08:45 PM capstone.Log info
+INFO: Changed weather to: Weather{sunny=false, windy=false, raining=true}
+Jan 30, 2024 2:08:46 PM capstone.Log info
+INFO: Changed weather to: Weather{sunny=true, windy=true, raining=false}
+Jan 30, 2024 2:08:47 PM capstone.Log info
+INFO: Changed weather to: Weather{sunny=false, windy=false, raining=true}
+Jan 30, 2024 2:08:48 PM capstone.Log info
+INFO: Changed weather to: Weather{sunny=true, windy=false, raining=false}
+Jan 30, 2024 2:08:49 PM capstone.Log info
+INFO: Changed weather to: Weather{sunny=false, windy=false, raining=true}
+Jan 30, 2024 2:08:50 PM capstone.Log info
+INFO: Changed weather to: Weather{sunny=true, windy=false, raining=false}
+Jan 30, 2024 2:08:51 PM capstone.Log info
+INFO: Switched to Wind Energy
+Jan 30, 2024 2:08:51 PM capstone.Log info
+INFO: Changed weather to: Weather{sunny=false, windy=true, raining=true}
+Jan 30, 2024 2:08:52 PM capstone.Log info
+INFO: Switched to Solar Energy
+Jan 30, 2024 2:08:52 PM capstone.Log info
+INFO: Changed weather to: Weather{sunny=true, windy=false, raining=false}
+Jan 30, 2024 2:08:54 PM capstone.Log info
+INFO: Changed weather to: Weather{sunny=true, windy=true, raining=false}
+Jan 30, 2024 2:08:55 PM capstone.Log info
+INFO: Switched to Wind Energy
+Jan 30, 2024 2:08:55 PM capstone.Log info
+INFO: Changed weather to: Weather{sunny=false, windy=true, raining=true}
+Jan 30, 2024 2:08:56 PM capstone.Log info
+INFO: Switched to Solar Energy
+Jan 30, 2024 2:08:56 PM capstone.Log info
+INFO: Changed weather to: Weather{sunny=true, windy=false, raining=false}
+Jan 30, 2024 2:08:58 PM capstone.Log info
+INFO: Switched to Wind Energy
+Jan 30, 2024 2:08:58 PM capstone.Log info
+INFO: Changed weather to: Weather{sunny=false, windy=true, raining=true}
+Jan 30, 2024 2:09:00 PM capstone.Log info
+INFO: Switched to Solar Energy
+Jan 30, 2024 2:09:00 PM capstone.Log info
+INFO: Changed weather to: Weather{sunny=true, windy=false, raining=false}
+Jan 30, 2024 2:09:01 PM capstone.Log info
+INFO: Switched to Wind Energy
+Jan 30, 2024 2:09:01 PM capstone.Log info
+INFO: Changed weather to: Weather{sunny=false, windy=true, raining=true}
+Jan 30, 2024 2:09:02 PM capstone.Log info
+INFO: Changed weather to: Weather{sunny=false, windy=true, raining=false}
+Jan 30, 2024 2:09:03 PM capstone.Log info
+INFO: Switched to Solar Energy
+Jan 30, 2024 2:09:03 PM capstone.Log info
+INFO: Changed weather to: Weather{sunny=true, windy=false, raining=true}
+Jan 30, 2024 2:09:04 PM capstone.Log info
+INFO: Switched to Wind Energy
+Jan 30, 2024 2:09:04 PM capstone.Log info
+INFO: Changed weather to: Weather{sunny=false, windy=true, raining=false}
+Jan 30, 2024 2:09:05 PM capstone.Log info
+INFO: Changed weather to: Weather{sunny=false, windy=false, raining=true}
+Jan 30, 2024 2:09:06 PM capstone.Log info
+INFO: Switched to Solar Energy
+Jan 30, 2024 2:09:06 PM capstone.Log info
+INFO: Changed weather to: Weather{sunny=true, windy=true, raining=false}
+Jan 30, 2024 2:09:07 PM capstone.Log info
+INFO: Switched to Wind Energy
+Jan 30, 2024 2:09:07 PM capstone.Log info
+INFO: Changed weather to: Weather{sunny=false, windy=true, raining=true}
+Jan 30, 2024 2:09:08 PM capstone.Log info
+INFO: Changed weather to: Weather{sunny=false, windy=true, raining=false}
+Jan 30, 2024 2:09:09 PM capstone.Log info
+INFO: Switched to Solar Energy
+Jan 30, 2024 2:09:09 PM capstone.Log info
+INFO: Changed weather to: Weather{sunny=true, windy=false, raining=false}
+Jan 30, 2024 2:09:10 PM capstone.Log info
+INFO: Changed weather to: Weather{sunny=true, windy=true, raining=false}
+Jan 30, 2024 2:09:11 PM capstone.Log info
+INFO: Changed weather to: Weather{sunny=true, windy=false, raining=true}
+Jan 30, 2024 2:09:12 PM capstone.Log info
+INFO: Switched to Wind Energy
+Jan 30, 2024 2:09:12 PM capstone.Log info
+INFO: Changed weather to: Weather{sunny=false, windy=true, raining=true}
+Jan 30, 2024 2:09:13 PM capstone.Log info
+INFO: Switched to Solar Energy
+Jan 30, 2024 2:09:13 PM capstone.Log info
+INFO: Changed weather to: Weather{sunny=true, windy=true, raining=false}
