@@ -1,16 +1,24 @@
-Dec 15, 2023 1:01:19 AM capstone.Log init
+Jan 30, 2024 12:37:45 PM capstone.Log init
 INFO: Loging system for Charging Station 1 started
-Dec 15, 2023 1:01:20 AM capstone.Log info
+Jan 30, 2024 12:37:45 PM capstone.Log info
 INFO:  adding new charger to station 1 with id 0
-Dec 15, 2023 1:01:20 AM capstone.Log info
+Jan 30, 2024 12:37:45 PM capstone.Log info
 INFO:  adding new charger to station 1 with id 1
-Dec 15, 2023 1:01:20 AM capstone.Log info
+Jan 30, 2024 12:37:45 PM capstone.Log info
 INFO: starting each charger
-Dec 15, 2023 1:01:20 AM capstone.Log info
+Jan 30, 2024 12:37:45 PM capstone.Log info
 INFO: starting charger 0
-Dec 15, 2023 1:01:20 AM capstone.Log info
+Jan 30, 2024 12:37:45 PM capstone.Log info
 INFO: starting charger 1
-Dec 15, 2023 1:01:20 AM capstone.Log info
+Jan 30, 2024 12:37:45 PM capstone.Log info
 INFO: starting listening function
-Dec 15, 2023 1:01:20 AM capstone.Log info
+Jan 30, 2024 12:37:45 PM capstone.Log info
 INFO: Listener component is on
+Jan 30, 2024 12:38:00 PM capstone.Log info
+INFO: cars with id 1 request to charge
+Jan 30, 2024 12:38:00 PM capstone.Log info
+INFO: cars with id 1 is added to waiting queue
+Jan 30, 2024 12:38:00 PM capstone.Log info
+INFO: cars with id 4 request to charge
+Jan 30, 2024 12:38:00 PM capstone.Log info
+INFO: cars with id 4 is added to waiting queue
