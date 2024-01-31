@@ -19,7 +19,7 @@ public class Charger extends Thread {
 	public ArrayList<Car> bookingCars;
 	public ArrayList<int[]> listenerComChannel;
 	int id;
-	boolean occupied;
+	public boolean occupied = false;
 	int chargingStationId;
 	Log logger;
 	public Car handledCar = new Car(-1);
@@ -82,7 +82,7 @@ public class Charger extends Thread {
 
 	}
 
-	void start_charge() {
+	public void start_charge() {
 		/*
 		 * charge the taken car and set self to occupied
 		 */
@@ -91,7 +91,7 @@ public class Charger extends Thread {
 		charging();
 	}
 
-	void stop_charge() {
+	public void stop_charge() {
 		/*
 		 * stop charging and set self to free
 		 */

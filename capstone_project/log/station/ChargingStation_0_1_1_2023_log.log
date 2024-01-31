@@ -1,48 +1,54 @@
-Jan 30, 2024 2:07:43 PM capstone.Log init
+Jan 31, 2024 12:32:40 AM capstone.Log init
 INFO: Loging system for Charging Station 0 started
-Jan 30, 2024 2:07:43 PM capstone.Log info
+Jan 31, 2024 12:32:40 AM capstone.Log info
 INFO:  adding new charger to station 0 with id 0
-Jan 30, 2024 2:07:43 PM capstone.Log info
+Jan 31, 2024 12:32:40 AM capstone.Log info
 INFO:  adding new charger to station 0 with id 1
-Jan 30, 2024 2:07:43 PM capstone.Log info
+Jan 31, 2024 12:32:40 AM capstone.Log info
 INFO: starting each charger
-Jan 30, 2024 2:07:43 PM capstone.Log info
+Jan 31, 2024 12:32:40 AM capstone.Log info
 INFO: starting charger 0
-Jan 30, 2024 2:07:43 PM capstone.Log info
+Jan 31, 2024 12:32:40 AM capstone.Log info
 INFO: starting charger 1
-Jan 30, 2024 2:07:43 PM capstone.Log info
+Jan 31, 2024 12:32:40 AM capstone.Log info
 INFO: starting listening function
-Jan 30, 2024 2:07:43 PM capstone.Log info
+Jan 31, 2024 12:32:40 AM capstone.Log info
 INFO: Listener component is on
-Jan 30, 2024 2:07:43 PM capstone.Log info
+Jan 31, 2024 12:32:40 AM capstone.Log info
 INFO: cars with id 0 request to charge
-Jan 30, 2024 2:07:43 PM capstone.Log info
+Jan 31, 2024 12:32:40 AM capstone.Log info
 INFO: cars with id 0 is added to waiting queue
-Jan 30, 2024 2:07:43 PM capstone.Log info
-INFO: cars with id 1 request to charge
-Jan 30, 2024 2:07:43 PM capstone.Log info
-INFO: cars with id 1 is added to waiting queue
-Jan 30, 2024 2:07:43 PM capstone.Log info
+Jan 31, 2024 12:32:40 AM capstone.Log info
 INFO: cars with id 2 request to charge
-Jan 30, 2024 2:07:43 PM capstone.Log info
+Jan 31, 2024 12:32:40 AM capstone.Log info
 INFO: cars with id 2 is added to waiting queue
-Jan 30, 2024 2:07:43 PM capstone.Log info
-INFO: cars with id 3 request to charge
-Jan 30, 2024 2:07:43 PM capstone.Log info
-INFO: cars with id 3 is added to waiting queue
-Jan 30, 2024 2:07:43 PM capstone.Log info
-INFO: cars with id 7 book slot at t = 60000
-Jan 30, 2024 2:07:43 PM capstone.Log info
+Jan 31, 2024 12:32:40 AM capstone.Log info
+INFO: cars with id 1 request to charge
+Jan 31, 2024 12:32:40 AM capstone.Log info
+INFO: cars with id 1 is added to waiting queue
+Jan 31, 2024 12:32:40 AM capstone.Log info
 INFO: cars with id 4 request to charge
-Jan 30, 2024 2:07:43 PM capstone.Log info
+Jan 31, 2024 12:32:40 AM capstone.Log info
 INFO: cars with id 4 is added to waiting queue
-Jan 30, 2024 2:07:43 PM capstone.Log info
-INFO: cars with id 6 book slot at t = 10000
-Jan 30, 2024 2:07:43 PM capstone.Log info
+Jan 31, 2024 12:32:40 AM capstone.Log info
+INFO: cars with id 3 request to charge
+Jan 31, 2024 12:32:40 AM capstone.Log info
+INFO: cars with id 3 is added to waiting queue
+Jan 31, 2024 12:32:40 AM capstone.Log info
 INFO: cars with id 5 book slot at t = 5000
-Jan 30, 2024 2:07:58 PM capstone.Log info
-INFO: cars with id 3 leave the station
-Jan 30, 2024 2:07:58 PM capstone.Log info
+Jan 31, 2024 12:32:40 AM capstone.Log info
+INFO: cars with id 6 book slot at t = 10000
+Jan 31, 2024 12:32:40 AM capstone.Log info
+INFO: cars with id 7 book slot at t = 60000
+Jan 31, 2024 12:32:55 AM capstone.Log info
 INFO: cars with id 4 leave the station
-Jan 30, 2024 2:07:58 PM capstone.Log info
-INFO: Car with id 4 is removed from waiting queue
+Jan 31, 2024 12:32:55 AM capstone.Log info
+INFO: cars with id 3 leave the station
+Jan 31, 2024 12:32:55 AM capstone.Log info
+INFO: Car with id 3 is removed from waiting queue
+Jan 31, 2024 12:36:03 AM capstone.Log info
+INFO: Listener component is off
+Jan 31, 2024 12:36:03 AM capstone.Log info
+INFO: waiting for all charger to finish
+Jan 31, 2024 12:36:03 AM capstone.Log info
+INFO: All charging station components are off
