@@ -1,4 +1,9 @@
+<<<<<<< HEAD
 Feb 02, 2024 10:19:09 PM capstone.Log init
+=======
+<<<<<<< Updated upstream
+Feb 02, 2024 9:46:31 PM capstone.Log init
+>>>>>>> b90c7e1e29605ef96f35da6a3f46895db810cfc7
 INFO: Loging system for System 0 started
 Feb 02, 2024 10:19:09 PM capstone.Log info
 INFO: starting system1
@@ -12,5 +17,26 @@ Feb 02, 2024 10:19:09 PM capstone.Log info
 INFO: energy controller is ready
 Feb 02, 2024 10:19:09 PM capstone.Log info
 INFO: starting first station
+<<<<<<< HEAD
 Feb 02, 2024 10:19:09 PM capstone.Log info
+=======
+Feb 02, 2024 9:46:31 PM capstone.Log info
+=======
+Feb 02, 2024 10:56:22 PM capstone.Log init
+INFO: Loging system for System 0 started
+Feb 02, 2024 10:56:22 PM capstone.Log info
+INFO: starting system1
+Feb 02, 2024 10:56:22 PM capstone.Log info
+INFO: Initialize charging station
+Feb 02, 2024 10:56:22 PM capstone.Log info
+INFO: Charging stations is ready
+Feb 02, 2024 10:56:22 PM capstone.Log info
+INFO: Initialize energy controller
+Feb 02, 2024 10:56:22 PM capstone.Log info
+INFO: energy controller is ready
+Feb 02, 2024 10:56:22 PM capstone.Log info
+INFO: starting first station
+Feb 02, 2024 10:56:22 PM capstone.Log info
+>>>>>>> Stashed changes
+>>>>>>> b90c7e1e29605ef96f35da6a3f46895db810cfc7
 INFO: starting second station

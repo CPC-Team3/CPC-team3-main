@@ -1,0 +1,3 @@
+Booked Car - ID: 1, Time Slot: 10
+Booked Car - ID: 2, Time Slot: 15
+Booked Car - ID: 1, Time Slot: 10

@@ -55,7 +55,7 @@ public class Simulation {
 	public static void main(String[] args) throws listeningException, InterruptedException {
 
 		// execute the system
-		ChargingSystem sys1 = new ChargingSystem("bookingFilePath", "bookingFilePath2", comChannel, comChannel2);
+		ChargingSystem sys1 = new ChargingSystem("C:\\Users\\GABRUUU\\git\\CPC-team3-main\\capstone_project\\log\\BookingSlot\\bookingSlot1.txt", "C:\\Users\\GABRUUU\\git\\CPC-team3-main\\capstone_project\\log\\BookingSlot\\bookingSlot2.txt", comChannel, comChannel2);
 		GUI gui1 = new GUI(sys1, comChannel, comChannel2);
 		sys1.setDaemon(true);
 		gui1.setDaemon(true);

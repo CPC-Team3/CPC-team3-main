@@ -1,4 +1,9 @@
+<<<<<<< HEAD
 Feb 02, 2024 10:19:09 PM capstone.Log init
+=======
+<<<<<<< Updated upstream
+Feb 02, 2024 9:46:31 PM capstone.Log init
+>>>>>>> b90c7e1e29605ef96f35da6a3f46895db810cfc7
 INFO: Loging system for Charging Station 1 started
 Feb 02, 2024 10:19:09 PM capstone.Log info
 INFO:  adding new charger to station 1 with id 0
@@ -14,6 +19,7 @@ Feb 02, 2024 10:19:09 PM capstone.Log info
 INFO: starting listening function
 Feb 02, 2024 10:19:09 PM capstone.Log info
 INFO: Listener component is on
+<<<<<<< HEAD
 Feb 02, 2024 10:19:24 PM capstone.Log info
 INFO: cars with id 4 request to charge
 Feb 02, 2024 10:19:24 PM capstone.Log info
@@ -36,3 +42,37 @@ Feb 02, 2024 10:22:32 PM capstone.Log info
 INFO: waiting for all charger to finish
 Feb 02, 2024 10:22:32 PM capstone.Log info
 INFO: All charging station components are off
+=======
+=======
+Feb 02, 2024 10:56:22 PM capstone.Log init
+INFO: Loging system for Charging Station 1 started
+Feb 02, 2024 10:56:22 PM capstone.Log info
+INFO:  adding new charger to station 1 with id 0
+Feb 02, 2024 10:56:22 PM capstone.Log info
+INFO:  adding new charger to station 1 with id 1
+Feb 02, 2024 10:56:22 PM capstone.Log info
+INFO: starting each charger
+Feb 02, 2024 10:56:22 PM capstone.Log info
+INFO: starting charger 0
+Feb 02, 2024 10:56:22 PM capstone.Log info
+INFO: starting charger 1
+Feb 02, 2024 10:56:22 PM capstone.Log info
+INFO: starting listening function
+Feb 02, 2024 10:56:22 PM capstone.Log info
+INFO: Listener component is on
+Feb 02, 2024 10:56:37 PM capstone.Log info
+INFO: cars with id 1 request to charge
+Feb 02, 2024 10:56:37 PM capstone.Log info
+INFO: cars with id 1 is added to waiting queue
+Feb 02, 2024 10:56:37 PM capstone.Log info
+INFO: cars with id 4 request to charge
+Feb 02, 2024 10:56:37 PM capstone.Log info
+INFO: cars with id 4 is added to waiting queue
+Feb 02, 2024 10:56:37 PM capstone.Log info
+INFO: cars with id 2 request to charge
+Feb 02, 2024 10:56:37 PM capstone.Log info
+INFO: cars with id 2 is added to waiting queue
+Feb 02, 2024 10:56:52 PM capstone.Log info
+INFO: cars with id 2 leave the station
+>>>>>>> Stashed changes
+>>>>>>> b90c7e1e29605ef96f35da6a3f46895db810cfc7

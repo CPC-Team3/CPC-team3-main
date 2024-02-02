@@ -20,7 +20,7 @@
 
 # setup enviroment
 > ## setup workspace
-> 1. clone this reprository to you machine
+> 1. clone this reprository to you machine (!do not download the zip file and unzip it because it will not work. instead, use git clone in your machine interminal)
 > 2. open java eclipse
 > 3. choose "CPC-team3-main" as work space when booting java
 
@@ -39,7 +39,7 @@
 > 4. in  "java build path": go to "libraries tab"
 > 5. in "libraries tab": dounle click on  "JRE System Library" (under "Modulepath")
 > 6. select Alternate JRE
-> 7. choose "jre"
+> 7. choose "jre" or other
 > 8. click finish
 > 9. click apply and close
 

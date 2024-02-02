@@ -1,4 +1,9 @@
+<<<<<<< HEAD
 Feb 02, 2024 10:19:09 PM capstone.Log init
+=======
+<<<<<<< Updated upstream
+Feb 02, 2024 9:46:31 PM capstone.Log init
+>>>>>>> b90c7e1e29605ef96f35da6a3f46895db810cfc7
 INFO: Loging system for Charger 1 started
 Feb 02, 2024 10:19:09 PM capstone.Log init
 INFO: Loging system for Charger 1 started
@@ -10,7 +15,60 @@ Feb 02, 2024 10:19:10 PM capstone.Log info
 INFO: Car 0 was taken from the waiting queue and will be charged
 Feb 02, 2024 10:19:10 PM capstone.Log info
 INFO: charger 1 starting ....
+<<<<<<< HEAD
 Feb 02, 2024 10:19:10 PM capstone.Log info
+=======
+Feb 02, 2024 9:46:31 PM capstone.Log info
+=======
+Feb 02, 2024 10:56:22 PM capstone.Log init
+INFO: Loging system for Charger 1 started
+Feb 02, 2024 10:56:22 PM capstone.Log init
+INFO: Loging system for Charger 1 started
+Feb 02, 2024 10:56:22 PM capstone.Log info
+INFO: charger 1 starting ....
+Feb 02, 2024 10:56:22 PM capstone.Log info
+INFO: Waiting for new car
+Feb 02, 2024 10:56:22 PM capstone.Log info
+INFO: Car 3 was taken from the waiting queue and will be charged
+Feb 02, 2024 10:56:22 PM capstone.Log info
+INFO: Charger 1 - Start charging car 3
+Feb 02, 2024 10:56:22 PM capstone.Log info
+INFO: charger 1 starting ....
+Feb 02, 2024 10:56:22 PM capstone.Log info
+INFO: Waiting for new car
+Feb 02, 2024 10:56:32 PM capstone.Log info
+INFO: Charger 1 - Stop charging car 3
+Feb 02, 2024 10:56:32 PM capstone.Log info
+INFO: Waiting for new car
+Feb 02, 2024 10:56:32 PM capstone.Log info
+INFO: Car 6 was taken from the booking queue and will be charged
+Feb 02, 2024 10:56:32 PM capstone.Log info
+INFO: Car 5 was taken from the booking queue and will be charged
+Feb 02, 2024 10:56:32 PM capstone.Log info
+INFO: Charger 1 - Start charging car 5
+Feb 02, 2024 10:56:37 PM capstone.Log info
+INFO: Car 1 was taken from the waiting queue and will be charged
+Feb 02, 2024 10:56:37 PM capstone.Log info
+INFO: Charger 1 - Start charging car 1
+Feb 02, 2024 10:56:42 PM capstone.Log info
+INFO: Charger 1 - Stop charging car 5
+Feb 02, 2024 10:56:42 PM capstone.Log info
+INFO: Waiting for new car
+Feb 02, 2024 10:56:47 PM capstone.Log info
+INFO: Charger 1 - Stop charging car 1
+Feb 02, 2024 10:56:47 PM capstone.Log info
+INFO: Waiting for new car
+Feb 02, 2024 10:56:47 PM capstone.Log info
+INFO: Car 2 was taken from the waiting queue and will be charged
+Feb 02, 2024 10:56:47 PM capstone.Log info
+INFO: Charger 1 - Start charging car 2
+Feb 02, 2024 10:56:57 PM capstone.Log info
+INFO: Charger 1 - Stop charging car 2
+Feb 02, 2024 10:56:57 PM capstone.Log info
+>>>>>>> Stashed changes
+INFO: Waiting for new car
+Feb 02, 2024 9:46:31 PM capstone.Log info
+>>>>>>> b90c7e1e29605ef96f35da6a3f46895db810cfc7
 INFO: Charger 1 - Start charging car 0
 Feb 02, 2024 10:19:10 PM capstone.Log info
 INFO: Waiting for new car
