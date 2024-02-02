@@ -48,7 +48,9 @@
 > 2. run Simulation.java
 
 # Home task
-[diagrams](https://github.com/CPC-Team3/CPC-team3-main/blob/main/capstone_project/capstone_diagrams.drawio.pdf)
+- All diagrams are located [here](https://github.com/CPC-Team3/CPC-team3-main/blob/main/capstone_project/capstone_diagrams.drawio.pdf)
+- System use case <br /> <img src='https://github.com/CPC-Team3/CPC-team3-main/blob/main/system_use_case.png' width='500'>
+
 ## Home task 1 
 > ### Sheikh Muhammad Adib
 > > - [Video](https://1drv.ms/v/s!AlQOuTxbuHLMkrtPOU6NlFzBZ_nKfQ?e=ReA000)
