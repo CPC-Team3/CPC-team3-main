@@ -20,7 +20,7 @@
 
 # setup enviroment
 > ## setup workspace
-> 1. clone this reprository to you machine
+> 1. clone this reprository to you machine (!do not download the zip file because it will not work. insted use git clone interminal)
 > 2. open java eclipse
 > 3. choose "CPC-team3-main" as work space when booting java
 
