@@ -1,16 +1,16 @@
-Feb 02, 2024 9:46:31 PM capstone.Log init
+февр. 02, 2024 10:18:13 PM capstone.Log init
 INFO: Loging system for System 0 started
-Feb 02, 2024 9:46:31 PM capstone.Log info
+февр. 02, 2024 10:18:13 PM capstone.Log info
 INFO: starting system1
-Feb 02, 2024 9:46:31 PM capstone.Log info
+февр. 02, 2024 10:18:13 PM capstone.Log info
 INFO: Initialize charging station
-Feb 02, 2024 9:46:31 PM capstone.Log info
+февр. 02, 2024 10:18:13 PM capstone.Log info
 INFO: Charging stations is ready
-Feb 02, 2024 9:46:31 PM capstone.Log info
+февр. 02, 2024 10:18:13 PM capstone.Log info
 INFO: Initialize energy controller
-Feb 02, 2024 9:46:31 PM capstone.Log info
+февр. 02, 2024 10:18:13 PM capstone.Log info
 INFO: energy controller is ready
-Feb 02, 2024 9:46:31 PM capstone.Log info
+февр. 02, 2024 10:18:13 PM capstone.Log info
 INFO: starting first station
-Feb 02, 2024 9:46:31 PM capstone.Log info
+февр. 02, 2024 10:18:13 PM capstone.Log info
 INFO: starting second station

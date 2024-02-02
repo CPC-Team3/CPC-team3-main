@@ -169,6 +169,10 @@ public class Controller extends Thread{
 	public ArrayList<Energy> getEnergySource() {
 		return EnergySource;
 	}
+	
+	public boolean getRunning() {
+		return running;
+	}
 
 	public void setEnergySource(ArrayList<Energy> energySource) {
 		EnergySource = energySource;

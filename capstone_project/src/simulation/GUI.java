@@ -54,7 +54,7 @@ public class GUI extends Thread {
     public void init() {
         // frame setting
         frame = new JFrame("Car Charging Station System Simulation");
-        frame.setBounds(100, 100, 300, 5000);
+        frame.setBounds(100, 100, 600, 3000);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setLayout(new GridLayout(15, 1));
         
