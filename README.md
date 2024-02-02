@@ -5,7 +5,7 @@
 > > - [add project to work space](##-add-project-to-work-space)
 > > - [setup library](#setup-library)
 > 3. [Instruction to run the simulation](#run-full-simulation)
-> 4. [Hometask from 1 to 5 for each member](#Home-task) (contains video link and tasks)
+> 4. [Hometask from 1 to 5 for each member and final capstone project](#Home-task) (contains video link and tasks)
 > > - [Hometask 1](#Home-task-1)
 > > - [Hometask 2](#Home-task-2)
 > > - [Hometask 3](#Home-task-3)
