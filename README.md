@@ -59,7 +59,7 @@
 > ### Aditya Kumar
 > > - [video]()
 > > - Task:
-> > > - Task1 
+> > > - Re-throwing Exceptions, Diagram.
 > ### Mykyta Konakh
 > > - [video]()
 > > - Task:
@@ -85,7 +85,7 @@
 > ### Aditya Kumar
 > > - [video]()
 > > - Task:
-> > > - Task1 
+> > > - Booking slot log for car with higher priority  
 > ### Mykyta Konakh
 > > - [video]()
 > > - Task:
@@ -138,7 +138,7 @@
 > ### Aditya Kumar
 > > - [video]()
 > > - Task:
-> > > - Task1 
+> > > - 1 unit test for addBookingSlot and 1 test for the charging station
 > ### Mykyta Konakh
 > > - [video]()
 > > - Task:
