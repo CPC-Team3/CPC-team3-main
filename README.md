@@ -69,15 +69,15 @@
 > ### Sheikh Muhammad Adib
 > > - [Video](https://1drv.ms/v/s!AlQOuTxbuHLMkrwY7vUTQQ67MKRHvw?e=t0zmu3)
 > > - Task:
-> > > - a.	Managing the log files. Make log file for each component. 
-> > > > i.	System
-> > > > ii.	Charging Station
-> > > > iii.	Energy controller
-> > > > iv.	Charger
-> > > b.	Create energy controller component (structure)
-> > > c.	Create car class for simulation
-> > > > i.	Car that can book
-> > > > ii.	Car that can request without booking
+> > > -	Managing the log files. Make log file for each component. 
+> > > > -	System
+> > > > -	Charging Station
+> > > > -	Energy controller
+> > > > -	Charger
+> > > -	Create energy controller component (structure)
+> > > -	Create car class for simulation
+> > > > -	Car that can book
+> > > > -	Car that can request without booking
 
 > ### Aditya Kumar
 > > - [video]()
