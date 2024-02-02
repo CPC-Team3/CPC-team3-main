@@ -1,6 +1,6 @@
 # This README file contains:
 > 1. [Team Member Information](#Team-4-members)
-> 2. [Instruction to setup the enviroment for the project](#setup-enviroment-(for-each-hometask-and-full-simulation))
+> 2. [Instruction to setup the enviroment for the project](#setup-enviroment) (for each hometask and full simulation)
 > > - [setup work space](##setup-workspace)
 > > - [add project to work space](##-add-project-to-work-space)
 > > - [setup library](##setup-library)
@@ -18,7 +18,7 @@
 3. Mykyta Konakh, ESE Student, 7219011
 4. Raed Kayali, ESE Student, 7219191
 
-# setup enviroment (for each hometask and full simulation)
+# setup enviroment
 > ## setup workspace
 > 1. clone this reprository to you machine
 > 2. open java eclipse
