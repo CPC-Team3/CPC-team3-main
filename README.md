@@ -39,7 +39,7 @@
 > 4. in  "java build path": go to "libraries tab"
 > 5. in "libraries tab": dounle click on  "JRE System Library" (under "Modulepath")
 > 6. select Alternate JRE
-> 7. choose "jre"
+> 7. choose "jre" or other
 > 8. click finish
 > 9. click apply and close
 
