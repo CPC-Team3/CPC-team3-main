@@ -1,17 +1,17 @@
 # This README file contains:
 > 1. [Team Member Information](#Team-4-members)
 > 2. [Instruction to setup the enviroment for the project](#setup-enviroment) (for each hometask and full simulation)
-> > - [setup work space](##setup-workspace)
+> > - [setup work space](#setup-workspace)
 > > - [add project to work space](##-add-project-to-work-space)
-> > - [setup library](##setup-library)
+> > - [setup library](#setup-library)
 > 3. [Instruction to run the simulation](#run-full-simulation)
 > 4. [Hometask from 1 to 5 for each member](#Home-task) (contains video link and tasks)
-> > - [Hometask 1](##Home-task-1)
-> > - [Hometask 2](##Home-task-2)
-> > - [Hometask 3](##Home-task-3)
-> > - [Hometask 4](##Home-task-4)
-> > - [Hometask 5](##Home-task-5)
-> > - [Final capstone project](##Final-capstone-project)
+> > - [Hometask 1](#Home-task-1)
+> > - [Hometask 2](#Home-task-2)
+> > - [Hometask 3](#Home-task-3)
+> > - [Hometask 4](#Home-task-4)
+> > - [Hometask 5](#Home-task-5)
+> > - [Final capstone project](#Final-capstone-project)
 # Team 4 members
 1. Sheikh Muhammad Adib bin Sh Abu Bakar, ESE Student, 7219310
 2. Aditya Kumar, ESE Student, 7219675 
