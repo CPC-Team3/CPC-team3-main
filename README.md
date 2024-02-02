@@ -69,7 +69,16 @@
 > ### Sheikh Muhammad Adib
 > > - [Video](https://1drv.ms/v/s!AlQOuTxbuHLMkrwY7vUTQQ67MKRHvw?e=t0zmu3)
 > > - Task:
-> > > - sfsdgsdgdfg
+> > > - a.	Managing the log files. Make log file for each component. 
+> > > > i.	System
+> > > > ii.	Charging Station
+> > > > iii.	Energy controller
+> > > > iv.	Charger
+> > > b.	Create energy controller component (structure)
+> > > c.	Create car class for simulation
+> > > > i.	Car that can book
+> > > > ii.	Car that can request without booking
+
 > ### Aditya Kumar
 > > - [video]()
 > > - Task:
@@ -136,5 +145,5 @@
 > > - Task:
 > > > - Task1
 ## Final capstone project
-> > - [video1]()
+> > - [video1](https://1drv.ms/v/s!AlQOuTxbuHLMkr5DryMHTLuvAxlPnw?e=QTdpkx)
 
