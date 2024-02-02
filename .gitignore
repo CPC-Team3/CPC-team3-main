@@ -1,8 +1,6 @@
 /.metadata/
 capstone_project/.classpath
 capstone_project/.project
-**/log
 **/lck
-*.log
 *.lck
 *.1
