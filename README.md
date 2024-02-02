@@ -1,6 +1,6 @@
 # This README file contains:
 > 1. [Team Member Information](#Team-4-members)
-> 2. [Instruction to setup the enviroment for the project](#setup-enviroment)
+> 2. [Instruction to setup the enviroment for the project](#setup-enviroment-(for-each-hometask-and-full-simulation))
 > > - [setup work space](##setup-workspace)
 > > - [add project to work space](##-add-project-to-work-space)
 > > - [setup library](##setup-library)
