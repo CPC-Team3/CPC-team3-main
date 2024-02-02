@@ -1,36 +1,30 @@
-Jan 31, 2024 4:20:53 PM capstone.Log init
+Feb 02, 2024 3:47:50 PM capstone.Log init
 INFO: Loging system for Charging Station 1 started
-Jan 31, 2024 4:20:53 PM capstone.Log info
+Feb 02, 2024 3:47:50 PM capstone.Log info
 INFO:  adding new charger to station 1 with id 0
-Jan 31, 2024 4:20:53 PM capstone.Log info
+Feb 02, 2024 3:47:50 PM capstone.Log info
 INFO:  adding new charger to station 1 with id 1
-Jan 31, 2024 4:20:54 PM capstone.Log info
+Feb 02, 2024 3:47:50 PM capstone.Log info
 INFO: starting each charger
-Jan 31, 2024 4:20:54 PM capstone.Log info
+Feb 02, 2024 3:47:50 PM capstone.Log info
 INFO: starting charger 0
-Jan 31, 2024 4:20:54 PM capstone.Log info
+Feb 02, 2024 3:47:50 PM capstone.Log info
 INFO: starting charger 1
-Jan 31, 2024 4:20:54 PM capstone.Log info
+Feb 02, 2024 3:47:50 PM capstone.Log info
 INFO: starting listening function
-Jan 31, 2024 4:20:54 PM capstone.Log info
+Feb 02, 2024 3:47:50 PM capstone.Log info
 INFO: Listener component is on
-Jan 31, 2024 4:21:08 PM capstone.Log info
-INFO: cars with id 3 request to charge
-Jan 31, 2024 4:21:08 PM capstone.Log info
-INFO: cars with id 3 is added to waiting queue
-Jan 31, 2024 4:21:08 PM capstone.Log info
-INFO: cars with id 2 request to charge
-Jan 31, 2024 4:21:08 PM capstone.Log info
-INFO: cars with id 2 is added to waiting queue
-Jan 31, 2024 4:21:08 PM capstone.Log info
+Feb 02, 2024 3:48:05 PM capstone.Log info
+INFO: cars with id 0 request to charge
+Feb 02, 2024 3:48:05 PM capstone.Log info
+INFO: cars with id 0 is added to waiting queue
+Feb 02, 2024 3:48:05 PM capstone.Log info
+INFO: cars with id 1 request to charge
+Feb 02, 2024 3:48:05 PM capstone.Log info
+INFO: cars with id 1 is added to waiting queue
+Feb 02, 2024 3:48:05 PM capstone.Log info
 INFO: cars with id 4 request to charge
-Jan 31, 2024 4:21:08 PM capstone.Log info
+Feb 02, 2024 3:48:05 PM capstone.Log info
 INFO: cars with id 4 is added to waiting queue
-Jan 31, 2024 4:21:20 PM capstone.Log info
-INFO: cars with id 12 request to charge
-Jan 31, 2024 4:21:20 PM capstone.Log info
-INFO: cars with id 12 is added to waiting queue
-Jan 31, 2024 4:21:23 PM capstone.Log info
+Feb 02, 2024 3:48:20 PM capstone.Log info
 INFO: cars with id 4 leave the station
-Jan 31, 2024 4:21:57 PM capstone.Log info
-INFO: cars with id 100 book slot at t = 70000

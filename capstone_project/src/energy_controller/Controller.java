@@ -100,7 +100,7 @@ public class Controller extends Thread{
 					logger = new Log("controller\\controller" + this.id, "Controller " + this.id, Standard.date);
 				}
 
-				Thread.sleep(1000); // Pause for simulation purposes
+				Thread.sleep(10000); // Pause for simulation purposes
 
 			} catch (InterruptedException e) {
 				logger.warning("Controller thread interrupted");
