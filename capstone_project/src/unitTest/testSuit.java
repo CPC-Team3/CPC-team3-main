@@ -10,4 +10,3 @@ import org.junit.platform.suite.api.SuiteDisplayName;
 public class testSuit {
 
 }
-

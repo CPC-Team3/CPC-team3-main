@@ -26,7 +26,7 @@ public class ChargingStation extends Thread{
 	public ArrayList<Car> bookingCars = new ArrayList<>(); // queue of waiting cars in the charging station
 	public final Lock waitingCarGuard = new ReentrantLock();;
 	public final Lock bookingCarGuard = new ReentrantLock();;
-	
+	public AddBookingSlot bookingSlotLogger; // Instance of AddBookingSlot
 	// Constructor
 	public ChargingStation(int id,String bookFilePath, ArrayList<int[]> comChannel) {
 		/*
@@ -37,9 +37,10 @@ public class ChargingStation extends Thread{
 		logger = new Log("station\\ChargingStation_"+String.valueOf(this.id),"Charging Station "+ String.valueOf(this.id), Standard.date);
 		this.bookFilePath = bookFilePath;
 		this.listenerComChannel = comChannel;
+		this.bookingSlotLogger = new AddBookingSlot(bookFilePath); // Instantiate AddBookingSlot
 		setDate(Standard.date);
 	}
-
+	
 	// Functionalities
 	public void run() {
 		/*
@@ -77,7 +78,7 @@ public class ChargingStation extends Thread{
 		logger.info("All charging station components are off");
 	}
 	
-	void listening( String bookFilePath) throws listeningException{
+	public void listening( String bookFilePath) throws listeningException{
 		/* 
 		 * read the booking file and wait for new incoming cars and put them in car waiting 
 		 */
@@ -145,7 +146,7 @@ public class ChargingStation extends Thread{
 		// put vehicle from book file to queue (if booking time >= current time)
 	}
 	
-	void book(int id, int timeSlot) {
+	public void book(int id, int timeSlot) {
 		/* 
 		 * book a time slot by any car to charge
 		 */
@@ -153,8 +154,9 @@ public class ChargingStation extends Thread{
 		bookingCars.add(new Car(id, timeSlot));
 		bookingCarGuard.unlock();
 		
-		
 		// Logging
+		// Log the booked car
+		bookingSlotLogger.logBookedCar(id, timeSlot);
 		
 	}
 	

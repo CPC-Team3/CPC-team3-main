@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import capstone.Log;
 import capstone.Standard;
+import charging_station.AddBookingSlot;
 import charging_station.ChargingStation;
 import energy_controller.Controller;
 import energy_controller.Energy;
@@ -27,6 +28,7 @@ public class ChargingSystem extends Thread {
 
 	public ChargingStation station1;
 	public ChargingStation station2;
+	public AddBookingSlot bookingSlotLogger;
 
 	// constructor
 	public ChargingSystem(String bookFilePath, String bookFilePath2, ArrayList<int[]> carComChannel,
@@ -38,6 +40,8 @@ public class ChargingSystem extends Thread {
 		this.carComChannel = carComChannel;
 		this.carComChannel2 = carComChannel2;
 		setDate(Standard.date);
+		// Instantiate AddBookingSlot for each station
+        bookingSlotLogger = new AddBookingSlot(bookFilePath);
 
 	}
 
@@ -113,7 +117,7 @@ public class ChargingSystem extends Thread {
 
 	// simulation
 	public static void main(String[] args) {
-		ChargingSystem sys1 = new ChargingSystem("bookingFilePath", "bookingFilePath2", new ArrayList<int[]>(),
+		ChargingSystem sys1 = new ChargingSystem("/capstone_project/log/BookingSlot/bookingSlot1.txt", "/capstone_project/log/BookingSlot/bookingSlot2.txt", new ArrayList<int[]>(),
 				new ArrayList<int[]>());
 		sys1.start();
 

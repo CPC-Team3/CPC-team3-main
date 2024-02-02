@@ -13,8 +13,8 @@ public class Car extends Thread{
     ArrayList<int[]> comChannel2;	// communication channel for charging station 1
     ArrayList<ArrayList<int[]>> comch = new ArrayList<ArrayList<int[]>>(); // list of communication channel
     long start;						// start waiting time
-	boolean done = false;			// either the car is already charged or not
-	String carCat;  				// Category of the car (fake car/ real time car/ booking car)
+	public boolean done = false;			// either the car is already charged or not
+	public String carCat;  				// Category of the car (fake car/ real time car/ booking car)
 	public int bookingTime;				// seconds
 	int bookingStation;
 	
@@ -142,6 +142,11 @@ public class Car extends Thread{
     public int getId_() {
     	return this.id;
     }
+
+	public Integer getTimeSlot() {
+		// TODO Auto-generated method stub
+		return null;
+	}
     
     //test
 }
