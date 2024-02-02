@@ -10,11 +10,20 @@ import java.awt.*;
 import java.util.ArrayList;
 
 public class GUI extends Thread {
+	
+	String result;
     public JFrame frame;
     
     //clock 
     public JLabel date_label;
     public JLabel clock_label;
+    
+    // queue
+    public JLabel waiting_queue_station1;
+    public JLabel waiting_queue_station2;
+    public JLabel booking_queue_station1;
+    public JLabel booking_queue_station2;
+    
     
 
     // energy source controller
@@ -39,7 +48,6 @@ public class GUI extends Thread {
         this.system = new_system;
         this.comChannel = new_comChannel;
         this.comChannel2 = new_comChannel2;
-        init();
     }
 
     // init GUI
@@ -97,6 +105,20 @@ public class GUI extends Thread {
         frame.add(addCarPanel);
         add_car_button.addActionListener(e -> add_new_car());
         frame.setVisible(true);
+        
+        
+     // queue
+        //JPanel queuePanel = new JPanel(new FlowLayout());
+        //waiting_queue_station1 = new JLabel("Waiting queue station 1: ");
+        //waiting_queue_station2 = new JLabel("Waiting queue station 2: ");
+        //booking_queue_station1 = new JLabel("Booking queue station 1: ");
+        //booking_queue_station2 = new JLabel("Booking queue station 2: ");
+        //queuePanel.add(waiting_queue_station1);
+        //queuePanel.add(waiting_queue_station2);
+        //queuePanel.add(booking_queue_station1);
+        //queuePanel.add(booking_queue_station2);
+        //frame.add(queuePanel);
+        //frame.setVisible(true);
     }
 
     public void add_new_car() {
@@ -144,6 +166,24 @@ public class GUI extends Thread {
         SwingUtilities.invokeLater(() -> weather_label.setText("Weather: " + system.energyController1.currentWeather));
         SwingUtilities.invokeLater(() -> energy_source_label.setText("Energy Source:" + system.energyController1.currentEnergySource));
         
+        
+        
+        //result = concatenateCars(system.station1.waitingCars);
+        //SwingUtilities.invokeLater(() -> waiting_queue_station1.setText("Waiting queue station 1: " + result));
+
+        //result = concatenateCars(system.station2.waitingCars);
+        //SwingUtilities.invokeLater(() -> waiting_queue_station2.setText("Waiting queue station 2:" + result));
+
+        //result = concatenateCars(system.station1.bookingCars);
+        //SwingUtilities.invokeLater(() -> booking_queue_station1.setText("Booking queue station 1: " + result));
+
+        //result = concatenateCars(system.station2.bookingCars);
+        //SwingUtilities.invokeLater(() -> booking_queue_station2.setText("Booking queue station 2:" + result));
+        
+        
+        
+        
+        
 
         try {
 			Thread.sleep(200);
@@ -159,5 +199,20 @@ public class GUI extends Thread {
         while (true) {
             update();
         }
+    }
+    
+    private static String concatenateCars(ArrayList<Car> carList) {
+        StringBuilder result = new StringBuilder();
+
+        for (Car car : carList) {
+            result.append(car.toString()).append(", ");
+        }
+
+        // Remove the trailing comma and space
+        if (result.length() > 2) {
+            result.setLength(result.length() - 2);
+        }
+
+        return result.toString();
     }
 }
