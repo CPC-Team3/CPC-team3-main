@@ -52,6 +52,7 @@
 - System use case <br /> <img src='https://github.com/CPC-Team3/CPC-team3-main/blob/main/system_use_case.png' width='500'>
 
 ## Home task 1 
+[Team 3, answers on the questions 1](https://1drv.ms/u/s!AnvqoDuBDuM60WBWMfXnKfq7mT8i?e=ED17ts)
 > ### Sheikh Muhammad Adib
 > > - [Video](https://1drv.ms/v/s!AlQOuTxbuHLMkrtPOU6NlFzBZ_nKfQ?e=ReA000)
 > > - Task:
@@ -69,6 +70,7 @@
 > > - Task:
 > > > - Task1 
 ## Home task 2 
+[Team 3, answers on the questions 2](https://1drv.ms/u/s!AnvqoDuBDuM60V4OtdhloIz4X8-X?e=4nUpvD)
 > ### Sheikh Muhammad Adib
 > > - [Video](https://1drv.ms/v/s!AlQOuTxbuHLMkrwY7vUTQQ67MKRHvw?e=t0zmu3)
 > > - Task:
@@ -95,6 +97,7 @@
 > > - Task:
 > > > - Task1 
 ## Home task 3 
+[Team 3, answers on the questions 3](https://1drv.ms/u/s!AnvqoDuBDuM60VxxSX0jd4LvELIj?e=0JjrH6)
 > ### Sheikh Muhammad Adib
 > > - [Video](https://1drv.ms/v/s!AlQOuTxbuHLMkrwaOVqcOtz1lxGILQ?e=RReu2y)
 > > - Task:
@@ -114,6 +117,7 @@
 > > - Task:
 > > > - Task1 
 ## Home task 4 
+[Team 3, answers on the questions 4](https://1drv.ms/u/s!AnvqoDuBDuM60V059N609KJKO6HH?e=gZZ9iT)
 > ### Sheikh Muhammad Adib
 > > - [Video](https://1drv.ms/v/s!AlQOuTxbuHLMkrwbmK3zhPPku70wCg?e=pDHG2j)
 > > - Task:
@@ -131,6 +135,7 @@
 > > - Task:
 > > > - Task1 
 ## Home task 5 
+[Team 3, videos for task 5](https://1drv.ms/u/s!AnvqoDuBDuM60V-xlOkX8XtjZFC7?e=TE5FyO)
 > ### Sheikh Muhammad Adib
 > > - [Video](https://1drv.ms/v/s!AlQOuTxbuHLMkrwd-8sH6pIvC_HDbA?e=w6OtpT)
 > > - Task:
