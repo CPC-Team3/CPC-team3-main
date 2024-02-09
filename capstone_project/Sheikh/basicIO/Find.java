@@ -71,6 +71,13 @@ public class Find {
             " -name \"<glob_pattern>\"");
         System.exit(-1);
     }
+    
+    static String readFirstLineFromFile(String path) throws IOException {
+	    try (FileReader fr = new FileReader(path);
+	         BufferedReader br = new BufferedReader(fr)) {
+	        return br.readLine();
+	    }
+	}
 
     public static void main(String[] args)
         throws IOException {
@@ -84,5 +91,7 @@ public class Find {
         Finder finder = new Finder(pattern); //set matcher
         Files.walkFileTree(startingDir, finder);
         finder.done();
+        System.out.println(Files.getOwner(startingDir));
+        readFirstLineFromFile("not exist");
     }
 }
