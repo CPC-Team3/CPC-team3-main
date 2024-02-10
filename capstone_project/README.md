@@ -11,7 +11,7 @@
 > > - [Hometask 3](#Home-task-3)
 > > - [Hometask 4](#Home-task-4)
 > > - [Hometask 5](#Home-task-5)
-> > - [Final capstone project](#Final-capstone-project)
+> > - [Final capstone project](#Final-capstone-project) - including our presentation slides
 # Team 4 members
 1. Sheikh Muhammad Adib bin Sh Abu Bakar, ESE Student, 7219310
 2. Aditya Kumar, ESE Student, 7219675 
@@ -154,7 +154,5 @@
 > > > - Task1
 ## Final capstone project
 > > - [video1](https://1drv.ms/v/s!AlQOuTxbuHLMksNet54AsQy3W5CxhA?e=LFohEP)
-
-
-
+> > - [Presentation Slides](https://1drv.ms/p/s!AlQOuTxbuHLMksYqIzM3VifXNmHF6w?e=omzCxx)
 
